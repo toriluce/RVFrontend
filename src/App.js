@@ -1,15 +1,21 @@
 import './App.css';
 import { useState, useEffect } from "react";
+// import dotenv from "dotenv"
+// dotenv.config()
 
+const URL = "http://localhost:3001"
+// process.env.URL
+
+const HEADERS = {
+	Accept: "application/json",
+	"Content-Type": "application/json",
+}
 
 const getPing = async () => {
 	try {
-		const res = await fetch("http://localhost:3001/ping", {
+		const res = await fetch(`${URL}/ping`, {
 			method: "GET",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-			},
+			headers: HEADERS,
 		});
 
 		return await res.json();
