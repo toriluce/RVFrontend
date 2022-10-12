@@ -4,14 +4,11 @@ import { useState, useEffect } from "react";
 import { URL, HEADERS } from "./config.js"
 
 const getPing = async () => {
-	try {
-		const res = await fetch(`${URL}/ping`, {
-			method: "GET",
-			headers: HEADERS,
-		});
-
-		return await res.json();
-	} catch (err) {}
+	const res = await fetch(`${URL}/ping`, {
+		method: "GET",
+		headers: HEADERS,
+	});
+	return await res.json();
 };
 
 function App() {
