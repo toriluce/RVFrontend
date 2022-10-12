@@ -1,15 +1,7 @@
 import './App.css';
 import { useState, useEffect } from "react";
-// import dotenv from "dotenv"
-// dotenv.config()
 
-const URL = "http://localhost:3001"
-// process.env.URL
-
-const HEADERS = {
-	Accept: "application/json",
-	"Content-Type": "application/json",
-}
+import { URL, HEADERS } from "./config.js"
 
 const getPing = async () => {
 	try {
