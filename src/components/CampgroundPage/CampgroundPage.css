@@ -1,0 +1,7 @@
+.campgroundImage {
+    width: 1000px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 30px;
+    padding-top: 20px;
+  }

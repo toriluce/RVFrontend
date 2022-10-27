@@ -1,0 +1,13 @@
+.brandTitle {
+    font-weight: bolder;
+    color: #4E6C50;
+    text-shadow: .05em .05em 0 rgb(57, 81, 68, 0.5);
+    font-size: 6em;
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+ .homeLink {
+  /* text-decoration: none; */
+  color: #4E6C50;
+ }

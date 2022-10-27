@@ -1,4 +1,5 @@
 import React from "react";
+import "./Campground.css";
 
 function Campground(props) {
   return (
@@ -9,8 +10,13 @@ function Campground(props) {
         alt={props.mainPhoto}
       ></img>
       <h1>{props.name}</h1>
+      <p>{props.address}</p>
       <p>{props.description}</p>
-      <button>Book Here</button>
+      <a href={`/${props.campgroundId}`}>
+        <button className="bookButton" type="button">
+          Book Here
+        </button>
+      </a>
     </div>
   );
 }
