@@ -16,18 +16,18 @@ const getSelectedCampground = async (campgroundId) => {
   return await res.json();
 };
 
-const CampgroundPage = (props) => {
+const CampgroundPage = () => {
+  const { campgroundId } = useParams();
+
   const [campground, setCampground] = useState();
-  let { campgroundId } = useParams();
-  // const availabilities = False;
+
+  const [isDatesSubmitted, setIsDatesSubmitted] = useState(false);
 
   useEffect(() => {
     getSelectedCampground(campgroundId)
       .then((res) => setCampground(res))
       .catch((err) => console.log(err));
   }, []);
-
-  const [isDatesSubmitted, setIsDatesSubmitted] = useState(false);
 
   return campground ? (
     <div className="App">

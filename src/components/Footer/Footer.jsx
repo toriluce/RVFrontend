@@ -2,12 +2,12 @@ import React from "react";
 import { DateTime } from "luxon";
 import "./Footer.css";
 
-const now = DateTime.now().year;
-
 function Footer() {
+  const now = DateTime.now().year;
+
   return (
     <footer className="year">
-        <p>Campground Finder {now}</p>
+      <p>Campground Finder {now}</p>
     </footer>
   );
 }

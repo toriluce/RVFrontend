@@ -21,9 +21,7 @@ function VisitUs(props) {
   }, []);
   return (
     <div className="visitUsBox">
-      <h1 className="visitUsText">
-        Visit us at our other campgrounds!
-      </h1>
+      <h1 className="visitUsText">Visit us at our other campgrounds!</h1>
       <div className="campgroundsDisplay">
         {data.map((campground) => {
           if (
@@ -35,7 +33,6 @@ function VisitUs(props) {
                 href={`/${campground.campgroundId}`}
                 key={campground.campgroundId}
               >
-                {/* <p className="visitUsNames">{campground.name}</p> */}
                 <img
                   className="visitUsPhotos"
                   src={campground.photos[0]}
