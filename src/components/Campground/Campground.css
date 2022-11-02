@@ -1,0 +1,42 @@
+.campground {
+  color: #4E6C50;
+  padding: 20px;
+}
+
+.campground h1 {
+  font-size: 3em;
+}
+
+.campgroundImage {
+  width: 1000px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.bookButton {
+  color: white;
+  background-color: #395144;
+  border-radius: 8px;
+  border-width: 0;
+  padding: 10px 12px;
+}
+
+.bookButton:hover,
+.bookButton:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.bookButton:hover {
+  transform: translateY(-1px);
+  background-color: #4E6C50;
+}
+
+.bookButton:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}

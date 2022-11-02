@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background: white;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  padding: 0;
+  margin: 0;
+}
