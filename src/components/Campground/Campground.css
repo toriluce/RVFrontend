@@ -1,7 +1,10 @@
 .campground {
   color: #4E6C50;
-  margin: 10px;
   padding: 20px;
+}
+
+.campground h1 {
+  font-size: 3em;
 }
 
 .campgroundImage {

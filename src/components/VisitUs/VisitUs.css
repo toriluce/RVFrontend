@@ -1,0 +1,29 @@
+.visitUsBox {
+    background-color: #4E6C50;
+}
+
+.visitUsText {
+    margin: 0;
+    padding-top: 10px;
+    color: white
+}
+
+.visitUsPhotos {
+    width: 80px;
+    height: 40px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.visitUsNames {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+}
+
+/* .campgroundsDisplay {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+} */

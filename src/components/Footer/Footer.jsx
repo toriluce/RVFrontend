@@ -6,8 +6,8 @@ const now = DateTime.now().year;
 
 function Footer() {
   return (
-    <footer>
-      <p className="year">{now}</p>
+    <footer className="year">
+        <p>Campground Finder {now}</p>
     </footer>
   );
 }

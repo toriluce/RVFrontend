@@ -1,13 +1,19 @@
 .brandTitle {
-    font-weight: bolder;
-    color: #4E6C50;
-    text-shadow: .05em .05em 0 rgb(57, 81, 68, 0.5);
-    font-size: 6em;
-    font-style: italic;
-    margin-bottom: 0;
-  }
+  font-weight: bolder;
+  color: #4e6c50;
+  text-shadow: 0.05em 0.05em 0 rgb(57, 81, 68, 0.5);
+  font-size: 6em;
+  font-style: italic;
+  margin: 0;
+}
 
- .homeLink {
-  /* text-decoration: none; */
-  color: #4E6C50;
- }
+.homeLink {
+  color: #4e6c50;
+}
+
+.headerBox {
+  background-color: white;
+  margin: 0;
+  padding-bottom: 30px;
+  padding-top: 10px;
+}

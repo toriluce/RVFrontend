@@ -2,9 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { URL, HEADERS } from "../../config.js";
 import { useParams } from "react-router-dom";
-import Header from "../Header/Header";
+import Navbar from "../Navbar/Navbar";
+import AvailableSites from "../AvailableSites/AvailableSites";
 import Footer from "../Footer/Footer";
 import "./CampgroundPage.css";
+import MoreCampgroundsDisplay from "../VisitUs/VisitUs";
 
 const getSelectedCampground = async (campgroundId) => {
   const res = await fetch(`${URL}/${campgroundId}`, {
@@ -17,6 +19,7 @@ const getSelectedCampground = async (campgroundId) => {
 const CampgroundPage = (props) => {
   const [campground, setCampground] = useState();
   let { campgroundId } = useParams();
+  // const availabilities = False;
 
   useEffect(() => {
     getSelectedCampground(campgroundId)
@@ -24,18 +27,33 @@ const CampgroundPage = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
+  const [isDatesSubmitted, setIsDatesSubmitted] = useState(false);
+
   return campground ? (
     <div className="App">
-      <Header />
-      <img
-        className="campgroundImage"
-        src={campground.photos[0]}
-        alt={campground.photos[0]}
-      ></img>
-      <h1>{campground.name}</h1>
-      <p>{campground.address}</p>
-      <p>{campground.description}</p>
-      <Footer />
+      <div className="campgroundPage">
+        <Navbar />
+        <div className="nameBox">
+          <h2 className="bookYourStay">Book Your Stay at</h2>
+          <h1 className="selectedCampgroundName">{campground.name}</h1>
+        </div>
+        <img
+          className="campgroundPageImage"
+          src={campground.photos[0]}
+          alt={campground.photos[0]}
+        ></img>
+        <h1>Select Your Dates</h1>
+        <button
+          onClick={() => setIsDatesSubmitted(true)}
+          className="bookButton checkAvailabilityButton"
+          type="button"
+        >
+          Check Availability
+        </button>
+        {isDatesSubmitted ? <AvailableSites /> : <div></div>}
+        <MoreCampgroundsDisplay currentCampgroundId={campground.campgroundId} />
+        <Footer />
+      </div>
     </div>
   ) : (
     <div></div>
