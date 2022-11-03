@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 import Campground from "../Campground/Campground";
 import Footer from "../Footer/Footer";
 import { URL, HEADERS } from "../../config";
-import CampgroundInterface from "../CampgroundPage/CampgroundInterface"
+import CampgroundInterface from "../../models/ICampground"
 
 const getCampgrounds = async () => {
   const res = await fetch(`${URL}/campgrounds`, {

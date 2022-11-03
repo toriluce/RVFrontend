@@ -1,5 +1,5 @@
 import "./Campground.css";
-import CampgroundInterface from "../CampgroundPage/CampgroundInterface"
+import CampgroundInterface from "../../models/ICampground"
 
 function Campground(props: CampgroundInterface) {
   return (

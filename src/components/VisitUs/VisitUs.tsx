@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { URL, HEADERS } from "../../config";
 import "./VisitUs.css";
-import CampgroundInterface from "../CampgroundPage/CampgroundInterface"
+import CampgroundInterface from "../../models/ICampground"
 
 interface Props {
   currentCampgroundId: string;

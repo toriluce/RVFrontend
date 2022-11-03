@@ -6,7 +6,7 @@ import AvailableSites from "../AvailableSites/AvailableSites";
 import Footer from "../Footer/Footer";
 import "./CampgroundPage.css";
 import VisitUs from "../VisitUs/VisitUs";
-import CampgroundInterface from "./CampgroundInterface"
+import CampgroundInterface from "../../models/ICampground"
 
 const getSelectedCampground = async (campgroundId: string) => {
   const res = await fetch(`${URL}/${campgroundId}`, {
