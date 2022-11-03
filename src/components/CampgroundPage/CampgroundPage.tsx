@@ -6,12 +6,7 @@ import AvailableSites from "../AvailableSites/AvailableSites";
 import Footer from "../Footer/Footer";
 import "./CampgroundPage.css";
 import VisitUs from "../VisitUs/VisitUs";
-
-interface CampgroundModelData {
-  name: string;
-  campgroundId: string;
-  photos: string;
-}
+import CampgroundInterface from "./CampgroundInterface"
 
 const getSelectedCampground = async (campgroundId: string) => {
   const res = await fetch(`${URL}/${campgroundId}`, {
@@ -27,7 +22,7 @@ const CampgroundPage = () => {
     throw new Error("campgroundId is undefined");
   }
 
-  const [campground, setCampground] = useState<CampgroundModelData>();
+  const [campground, setCampground] = useState<CampgroundInterface>();
 
   const [isDatesSubmitted, setIsDatesSubmitted] = useState(false);
 
