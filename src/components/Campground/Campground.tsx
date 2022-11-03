@@ -1,13 +1,13 @@
-import React from "react";
 import "./Campground.css";
+import CampgroundInterface from "../../models/ICampground"
 
-function Campground(props) {
+function Campground(props: CampgroundInterface) {
   return (
     <div className="campground">
       <img
         className="campgroundImage"
-        src={props.mainPhoto}
-        alt={props.mainPhoto}
+        src={props.photos[0]}
+        alt={props.photos[0]}
       ></img>
       <h1>{props.name}</h1>
       <p>{props.address}</p>

@@ -1,9 +1,9 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Campground from "../Campground/Campground";
 import Footer from "../Footer/Footer";
-import { URL, HEADERS } from "../../config.js";
+import { URL, HEADERS } from "../../config";
+import CampgroundInterface from "../../models/ICampground"
 
 const getCampgrounds = async () => {
   const res = await fetch(`${URL}/campgrounds`, {
@@ -26,7 +26,7 @@ const HomePage = () => {
     <div className="App">
       <Header />
       <div>
-        {data.map((campground) => {
+        {data.map((campground: CampgroundInterface) => {
           if (campground.name !== "Test RV Resort") {
             return (
               <Campground
@@ -35,7 +35,7 @@ const HomePage = () => {
                 name={campground.name}
                 address={campground.address}
                 description={campground.description}
-                mainPhoto={campground.photos[0]}
+                photos={campground.photos}
               />
             );
           }

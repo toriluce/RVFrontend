@@ -1,14 +1,14 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import { URL, HEADERS } from "../../config.js";
+import { URL, HEADERS } from "../../config";
 import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import AvailableSites from "../AvailableSites/AvailableSites";
 import Footer from "../Footer/Footer";
 import "./CampgroundPage.css";
-import MoreCampgroundsDisplay from "../VisitUs/VisitUs";
+import VisitUs from "../VisitUs/VisitUs";
+import CampgroundInterface from "../../models/ICampground"
 
-const getSelectedCampground = async (campgroundId) => {
+const getSelectedCampground = async (campgroundId: string) => {
   const res = await fetch(`${URL}/${campgroundId}`, {
     method: "GET",
     headers: HEADERS,
@@ -18,8 +18,11 @@ const getSelectedCampground = async (campgroundId) => {
 
 const CampgroundPage = () => {
   const { campgroundId } = useParams();
+  if (!campgroundId) {
+    throw new Error("campgroundId is undefined");
+  }
 
-  const [campground, setCampground] = useState();
+  const [campground, setCampground] = useState<CampgroundInterface>();
 
   const [isDatesSubmitted, setIsDatesSubmitted] = useState(false);
 
@@ -51,7 +54,7 @@ const CampgroundPage = () => {
           Check Availability
         </button>
         {isDatesSubmitted ? <AvailableSites /> : <div></div>}
-        <MoreCampgroundsDisplay currentCampgroundId={campground.campgroundId} />
+        <VisitUs currentCampgroundId={campground.campgroundId} />
         <Footer />
       </div>
     </div>
