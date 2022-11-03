@@ -1,4 +1,3 @@
-import React from "react";
 import "./AvailableSites.css";
 import Site from "../Site/Site";
 

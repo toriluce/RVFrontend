@@ -1,7 +1,18 @@
-import React from "react";
 import { useState, useEffect } from "react";
-import { URL, HEADERS } from "../../config.js";
+import { URL, HEADERS } from "../../config";
 import "./VisitUs.css";
+
+interface CampgroundData {
+  name: string;
+  address: string;
+  description: string;
+  campgroundId: string;
+  photos: string;
+}
+
+interface Props {
+  currentCampgroundId: string;
+}
 
 const getCampgrounds = async () => {
   const res = await fetch(`${URL}/campgrounds`, {
@@ -11,7 +22,7 @@ const getCampgrounds = async () => {
   return await res.json();
 };
 
-function VisitUs(props) {
+function VisitUs(props: Props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -23,9 +34,9 @@ function VisitUs(props) {
     <div className="visitUsBox">
       <h1 className="visitUsText">Visit us at our other campgrounds!</h1>
       <div className="campgroundsDisplay">
-        {data.map((campground) => {
+        {data.map((campground: CampgroundData) => {
           if (
-            (campground.name !== "Test RV Resort") &
+            (campground.name !== "Test RV Resort") &&
             (campground.campgroundId !== props.currentCampgroundId)
           ) {
             return (

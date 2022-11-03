@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Site.css";
-import { URL, HEADERS } from "../../config.js";
+import { URL, HEADERS } from "../../config";
 import Alert from "../Alert/Alert";
 
 function Site() {

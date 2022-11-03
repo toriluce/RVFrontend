@@ -3,7 +3,15 @@ import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Campground from "../Campground/Campground";
 import Footer from "../Footer/Footer";
-import { URL, HEADERS } from "../../config.js";
+import { URL, HEADERS } from "../../config";
+
+interface CampgroundData {
+  name: string;
+  address: string;
+  description: string;
+  campgroundId: string;
+  photos: string;
+}
 
 const getCampgrounds = async () => {
   const res = await fetch(`${URL}/campgrounds`, {
@@ -26,7 +34,7 @@ const HomePage = () => {
     <div className="App">
       <Header />
       <div>
-        {data.map((campground) => {
+        {data.map((campground: CampgroundData) => {
           if (campground.name !== "Test RV Resort") {
             return (
               <Campground

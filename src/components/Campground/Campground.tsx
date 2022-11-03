@@ -1,7 +1,15 @@
 import React from "react";
 import "./Campground.css";
 
-function Campground(props) {
+interface CampgroundProps {
+  name: string;
+  address: string;
+  description: string;
+  campgroundId: string;
+  mainPhoto: string;
+}
+
+function Campground(props: CampgroundProps) {
   return (
     <div className="campground">
       <img
