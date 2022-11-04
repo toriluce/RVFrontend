@@ -1,9 +1,9 @@
-.finalBookButton {
-    margin: 10px;
+.availableSite {
+  background-color: rgb(57, 81, 68, 0.5);
+  margin: 20px;
+  padding: 10px;
 }
 
-.availableSite {
-    background-color: rgb(57, 81, 68, 0.5);
-    margin: 20px;
-    padding: 10px;
+.finalBookButton {
+  margin: 10px;
 }

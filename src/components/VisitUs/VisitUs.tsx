@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { URL, HEADERS } from "../../config";
+
+import CampgroundInterface from "../../models/ICampground";
+
 import "./VisitUs.css";
-import CampgroundInterface from "../../models/ICampground"
 
 interface Props {
   currentCampgroundId: string;
@@ -26,11 +28,11 @@ function VisitUs(props: Props) {
   return (
     <div className="visitUsBox">
       <h1 className="visitUsText">Visit us at our other campgrounds!</h1>
-      <div className="campgroundsDisplay">
+      <div>
         {data.map((campground: CampgroundInterface) => {
           if (
-            (campground.name !== "Test RV Resort") &&
-            (campground.campgroundId !== props.currentCampgroundId)
+            campground.name !== "Test RV Resort" &&
+            campground.campgroundId !== props.currentCampgroundId
           ) {
             return (
               <a

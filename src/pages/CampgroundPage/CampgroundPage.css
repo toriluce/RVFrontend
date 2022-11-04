@@ -1,0 +1,29 @@
+.campgroundNameBox {
+  background-color: white;
+  padding: 20px;
+}
+
+.bookYourStayText {
+  font-size: 3rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.campgroundNameText {
+  font-size: 5em;
+  margin: 0;
+  color: rgb(57, 81, 68);
+}
+
+.campgroundMainImage {
+  width: 1000px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+.checkAvailabilityButton {
+  margin-bottom: 20px;
+  font-style: italic;
+}

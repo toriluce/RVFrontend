@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import "./Site.css";
+import { useState } from "react";
 import { URL, HEADERS } from "../../config";
+
 import Alert from "../Alert/Alert";
+
+import "./Site.css";
 
 function Site() {
   const dateToReserve = {
-    siteId: "testsite",
-    date: "12/01/2022",
+    siteId: "S.001",
+    date: "2022/12/01",
     campgroundId: "000",
     customerId: "000",
     reservationId: "000",
@@ -28,7 +30,7 @@ function Site() {
   return (
     <div className="availableSite">
       <p>This is an available site.</p>
-      <button className="bookButton finalBookButton" onClick={handleClick}>
+      <button className="button finalBookButton" onClick={handleClick}>
         Book Now
       </button>
       {isSuccessfullyBooked ? (

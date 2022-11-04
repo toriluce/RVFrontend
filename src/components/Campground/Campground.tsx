@@ -1,5 +1,6 @@
-import "./Campground.css";
 import CampgroundInterface from "../../models/ICampground"
+
+import "./Campground.css";
 
 function Campground(props: CampgroundInterface) {
   return (
@@ -13,7 +14,7 @@ function Campground(props: CampgroundInterface) {
       <p>{props.address}</p>
       <p>{props.description}</p>
       <a href={`/${props.campgroundId}`}>
-        <button className="bookButton" type="button">
+        <button className="button" type="button">
           Book Here
         </button>
       </a>

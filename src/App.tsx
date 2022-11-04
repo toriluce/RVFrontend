@@ -1,11 +1,9 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import HomePage from "./pages/HomePage/HomePage";
+import CampgroundPage from "./pages/CampgroundPage/CampgroundPage";
+
 import "./App.css";
-import HomePage from "../HomePage/HomePage";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import CampgroundPage from "../CampgroundPage/CampgroundPage";
 
 function App() {
   return (
