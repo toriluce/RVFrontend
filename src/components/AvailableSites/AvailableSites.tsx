@@ -33,7 +33,6 @@ const getUnavailableSites = async (
   return await res.json();
 };
 
-// CALCULATE AVAILABLE SITES
 const calculateAvailableSites = async (
   campgroundId: string,
   startDate: string,
@@ -58,7 +57,6 @@ const calculateAvailableSites = async (
   return availableSites;
 };
 
-// AVAILABLE SITES FUNCTION DEFINITION
 const AvailableSites = (props: {
   campgroundId: string;
   startDate: string;
@@ -82,17 +80,6 @@ const AvailableSites = (props: {
             <Site
               key={site.siteId}
               site={site}
-              // siteId={site.siteId}
-              // campgroundId={site.campgroundId}
-              // amp15={site.amp15}
-              // amp30={site.amp30}
-              // amp50={site.amp50}
-              // sewer={site.sewer}
-              // water={site.water}
-              // siteType={site.siteType}
-              // campgroundSiteNumber={site.campgroundSiteNumber}
-              // photos={site.photos}
-              // pricePerNight={site.pricePerNight}
               startDate={props.startDate}
               endDate={props.endDate}
             />
