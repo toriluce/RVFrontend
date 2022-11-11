@@ -36,7 +36,7 @@ function VisitUs(props: Props) {
           ) {
             return (
               <a
-                href={`/${campground.campgroundId}`}
+                href={`/campgrounds/${campground.campgroundId}`}
                 key={campground.campgroundId}
               >
                 <img

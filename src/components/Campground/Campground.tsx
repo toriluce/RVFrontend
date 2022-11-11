@@ -13,7 +13,7 @@ function Campground(props: CampgroundInterface) {
       <h1>{props.name}</h1>
       <p>{props.address}</p>
       <p>{props.description}</p>
-      <a href={`/${props.campgroundId}`}>
+      <a href={`/campgrounds/${props.campgroundId}`}>
         <button className="button" type="button">
           Book Here
         </button>

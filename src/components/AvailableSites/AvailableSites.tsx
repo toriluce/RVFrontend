@@ -3,47 +3,107 @@ import { URL, HEADERS } from "../../config";
 
 import Site from "../Site/Site";
 
-import SiteInterface from "../../models/ISite"
+import SiteInterface from "../../models/ISite";
 
-const getAvailableSites = async () => {
-  const res = await fetch(`${URL}/availableSites`, {
+import "./AvailableSites.css";
+import UnavailableSiteInterface from "../../models/IUnavailableSite";
+
+const getAllSitesAtCampground = async (
+  campgroundId: string
+): Promise<SiteInterface[]> => {
+  const res = await fetch(`${URL}/campgrounds/${campgroundId}/sites`, {
     method: "GET",
     headers: HEADERS,
   });
   return await res.json();
 };
 
-const AvailableSites = () => {
-  // const [data, setData] = useState([]);
+const getUnavailableSites = async (
+  campgroundId: string,
+  startDate: string,
+  endDate: string
+): Promise<UnavailableSiteInterface[]> => {
+  const res = await fetch(
+    `${URL}/campgrounds/${campgroundId}/unavailableSites?startDate=${startDate}&endDate=${endDate}`,
+    {
+      method: "GET",
+      headers: HEADERS,
+    }
+  );
+  return await res.json();
+};
 
-  // useEffect(() => {
-  //   getAvailableSites()
-  //     .then((res) => setData(res))
-  //     .catch((err) => console.log(err));
-  // }, []);
+// CALCULATE AVAILABLE SITES
+const calculateAvailableSites = async (
+  campgroundId: string,
+  startDate: string,
+  endDate: string
+) => {
+  const unavailableSites = await getUnavailableSites(
+    campgroundId,
+    startDate,
+    endDate
+  );
+
+  const allSites = await getAllSitesAtCampground(campgroundId);
+
+  const availableSites: SiteInterface[] = allSites.filter(
+    (allSitesSite: SiteInterface) => {
+      return !unavailableSites.find(
+        (unavailableSite) => unavailableSite.siteId === allSitesSite.siteId
+      );
+    }
+  );
+ 
+  return availableSites;
+};
+
+// AVAILABLE SITES FUNCTION DEFINITION
+const AvailableSites = (props: {
+  campgroundId: string;
+  startDate: string;
+  endDate: string;
+}) => {
+  const [availableSites, setAvailableSites] = useState<SiteInterface[]>([]);
+
+  useEffect(() => {
+    calculateAvailableSites(props.campgroundId, props.startDate, props.endDate)
+      .then((availableSites: SiteInterface[]) =>
+        setAvailableSites(availableSites)
+      )
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div>
-      <div>
-        <Site />
-        <Site />
-        <Site />
-      </div>
-      {/* <div>
-        {data.map((site: SiteInterface) => {
+      {availableSites.length > 0 ? (
+        availableSites.map((site: SiteInterface) => {
           return (
             <Site
               key={site.siteId}
-              siteId={site.siteId}
-              date={site.date}
-              campgroundId={site.campgroundId}
-              customerId={site.customerId}
-              reservationId={site.reservationId}
-              reservationCompleted={site.reservationCompleted}
+              site={site}
+              // siteId={site.siteId}
+              // campgroundId={site.campgroundId}
+              // amp15={site.amp15}
+              // amp30={site.amp30}
+              // amp50={site.amp50}
+              // sewer={site.sewer}
+              // water={site.water}
+              // siteType={site.siteType}
+              // campgroundSiteNumber={site.campgroundSiteNumber}
+              // photos={site.photos}
+              // pricePerNight={site.pricePerNight}
+              startDate={props.startDate}
+              endDate={props.endDate}
             />
           );
-        })}
-      </div> */}
+        })
+      ) : (
+        <div className="noAvailability">
+          <h1>No available sites were found within specified date.</h1>
+          <h2>Please enter a different date.</h2>
+        </div>
+      )}
     </div>
   );
 };

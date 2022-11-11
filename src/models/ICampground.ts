@@ -1,9 +1,9 @@
 interface CampgroundInterface {
-    name: string;
-    address: string;
-    description: string;
-    campgroundId: string;
-    photos: string;
-  }
+  name: string;
+  address: string;
+  description: string;
+  campgroundId: string;
+  photos: string;
+}
 
-  export default CampgroundInterface
+export default CampgroundInterface;

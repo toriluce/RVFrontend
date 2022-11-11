@@ -1,7 +1,37 @@
-.availableSite {
+.availableSiteDisplay {
   background-color: rgb(57, 81, 68, 0.5);
   margin: 20px;
-  padding: 10px;
+  padding: 5px;
+  display: flex;
+}
+
+.siteImage {
+  width: 25rem;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.siteInformationBox {
+  flex-grow: 3;
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1em;
+}
+
+.siteNameDescriptionBox {
+  flex: 1;
+}
+
+.finalBookButtonBox {
+  background-color: rgba(181, 199, 188, 0.9);
+  flex: 1;
+  padding: 1em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .finalBookButton {

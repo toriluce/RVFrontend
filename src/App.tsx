@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/:campgroundId" element={<CampgroundPage />} />
+        <Route path="/campgrounds/:campgroundId" element={<CampgroundPage />} />
       </Routes>
     </BrowserRouter>
   );
