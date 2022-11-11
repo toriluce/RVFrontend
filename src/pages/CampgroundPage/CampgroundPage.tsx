@@ -31,11 +31,11 @@ const CampgroundPage = () => {
   const [isDatesSubmitted, setIsDatesSubmitted] = useState(false);
   const [isIncorrectDate, setIsIncorrectDate] = useState(false);
 
-  const [startDate, setStartDate] = useState("2022-1-01");
-  const [endDate, setEndDate] = useState("2022-1-04");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const checkAvailabilityButtonClick = () => {
-    if (startDate != null && endDate != null && startDate < endDate) {
+    if (startDate != null && endDate != null && DateTime.fromISO(startDate) < DateTime.fromISO(endDate)) {
       setIsDatesSubmitted(true);
     } else {
       setIsIncorrectDate(true);
@@ -68,7 +68,7 @@ const CampgroundPage = () => {
           type="date"
           min={DateTime.now().toISODate()}
           onChange={(event) => {
-            setStartDate(event.target as any);
+            setStartDate(event.target.value as any);
           }}
         ></input>
       </div>
@@ -80,7 +80,7 @@ const CampgroundPage = () => {
           type="date"
           min={DateTime.now().toISODate()}
           onChange={(event) => {
-            setEndDate(event.target as any);
+            setEndDate(event.target.value as any);
           }}
         ></input>
       </div>
