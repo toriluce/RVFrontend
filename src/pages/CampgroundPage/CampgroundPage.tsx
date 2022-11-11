@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { URL, HEADERS } from "../../config";
+import { DateTime } from "luxon";
 
 import Navbar from "../../components/Navbar/Navbar";
 import AvailableSites from "../../components/AvailableSites/AvailableSites";
@@ -28,12 +29,18 @@ const CampgroundPage = () => {
   const [campground, setCampground] = useState<CampgroundInterface>();
 
   const [isDatesSubmitted, setIsDatesSubmitted] = useState(false);
+  const [isIncorrectDate, setIsIncorrectDate] = useState(false);
 
-  const startDate: string = "2022-12-01";
-  const endDate: string = "2022-12-03";
+  const [startDate, setStartDate] = useState("2022-1-01");
+  const [endDate, setEndDate] = useState("2022-1-04");
 
-  // const startDate: string = document.getElementById("startDate").value;
-  // const endDate: string = document.getElementById("endDate").value;
+  const checkAvailabilityButtonClick = () => {
+    if (startDate != null && endDate != null && startDate < endDate) {
+      setIsDatesSubmitted(true);
+    } else {
+      setIsIncorrectDate(true);
+    }
+  };
 
   useEffect(() => {
     getSelectedCampground(campgroundId)
@@ -55,25 +62,46 @@ const CampgroundPage = () => {
       ></img>
       <h1>Select Your Dates:</h1>
       <div>
-        <label htmlFor="startDate">Start Date: </label>
-        <input id="startDate" type="date" name="Start Date"></input>
+        <label htmlFor="startDateInput">Start Date: </label>
+        <input
+          id="startDateInput"
+          type="date"
+          min={DateTime.now().toISODate()}
+          onChange={(event) => {
+            setStartDate(event.target as any);
+          }}
+        ></input>
       </div>
       <br />
       <div>
-        <label htmlFor="endDate">End Date: </label>
-        <input id="endDate" type="date"></input>
-
+        <label htmlFor="endDateInput">End Date: </label>
+        <input
+          id="endDateInput"
+          type="date"
+          min={DateTime.now().toISODate()}
+          onChange={(event) => {
+            setEndDate(event.target as any);
+          }}
+        ></input>
       </div>
       <br />
       <div>
         <button
-          onClick={() => setIsDatesSubmitted(true)}
+          onClick={checkAvailabilityButtonClick}
           className="button checkAvailabilityButton"
           type="button"
         >
           Check Availability
         </button>
       </div>
+      {isIncorrectDate ? (
+        <div className="invalidDateRange">
+          <h1>You have entered an invalid date range.</h1>
+          <h2>Please refresh the page to select a new range.</h2>
+        </div>
+      ) : (
+        <div></div>
+      )}
       {isDatesSubmitted ? (
         <AvailableSites
           key={campgroundId}

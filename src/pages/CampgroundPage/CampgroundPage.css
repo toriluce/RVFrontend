@@ -27,3 +27,19 @@
   margin-bottom: 21.44px;
   font-style: italic;
 }
+
+.invalidDateRange {
+  background-color: rgb(100, 18, 18, 0.5);
+  margin: 20px;
+  padding: 5px;
+}
+
+.invalidDateRange h1 {
+  margin-bottom: 0;
+  color: rgb(100, 18, 18);
+}
+
+.invalidDateRange h2 {
+  margin-top: 0;
+  color: rgb(100, 18, 18);
+}

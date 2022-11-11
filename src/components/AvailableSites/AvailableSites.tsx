@@ -54,7 +54,7 @@ const calculateAvailableSites = async (
       );
     }
   );
- 
+
   return availableSites;
 };
 
