@@ -6,6 +6,7 @@ import Alert from "../Alert/Alert";
 import SiteInterface from "../../models/ISite";
 
 import "./Site.css";
+import UnavailableSiteInterface from "../../models/IUnavailableSite";
 
 interface siteComponentPropsInterface {
   site: SiteInterface;
@@ -14,7 +15,7 @@ interface siteComponentPropsInterface {
 }
 
 const Site = (props: siteComponentPropsInterface) => {
-  const unavailableSite = {
+  const unavailableSite: UnavailableSiteInterface = {
     campgroundId: props.site.campgroundId,
     siteId: props.site.siteId,
     date: props.startDate,

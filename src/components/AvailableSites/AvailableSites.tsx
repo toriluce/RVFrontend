@@ -6,55 +6,20 @@ import Site from "../Site/Site";
 import SiteInterface from "../../models/ISite";
 
 import "./AvailableSites.css";
-import UnavailableSiteInterface from "../../models/IUnavailableSite";
 
-const getAllSitesAtCampground = async (
-  campgroundId: string
-): Promise<SiteInterface[]> => {
-  const res = await fetch(`${URL}/campgrounds/${campgroundId}/sites`, {
-    method: "GET",
-    headers: HEADERS,
-  });
-  return await res.json();
-};
-
-const getUnavailableSites = async (
+const getAvailableSites = async (
   campgroundId: string,
   startDate: string,
   endDate: string
-): Promise<UnavailableSiteInterface[]> => {
+): Promise<SiteInterface[]> => {
   const res = await fetch(
-    `${URL}/campgrounds/${campgroundId}/unavailableSites?startDate=${startDate}&endDate=${endDate}`,
+    `${URL}/campgrounds/${campgroundId}/availableSites?startDate=${startDate}&endDate=${endDate}`,
     {
       method: "GET",
       headers: HEADERS,
     }
   );
   return await res.json();
-};
-
-const calculateAvailableSites = async (
-  campgroundId: string,
-  startDate: string,
-  endDate: string
-) => {
-  const unavailableSites = await getUnavailableSites(
-    campgroundId,
-    startDate,
-    endDate
-  );
-
-  const allSites = await getAllSitesAtCampground(campgroundId);
-
-  const availableSites: SiteInterface[] = allSites.filter(
-    (allSitesSite: SiteInterface) => {
-      return !unavailableSites.find(
-        (unavailableSite) => unavailableSite.siteId === allSitesSite.siteId
-      );
-    }
-  );
-
-  return availableSites;
 };
 
 const AvailableSites = (props: {
@@ -65,7 +30,7 @@ const AvailableSites = (props: {
   const [availableSites, setAvailableSites] = useState<SiteInterface[]>([]);
 
   useEffect(() => {
-    calculateAvailableSites(props.campgroundId, props.startDate, props.endDate)
+    getAvailableSites(props.campgroundId, props.startDate, props.endDate)
       .then((availableSites: SiteInterface[]) =>
         setAvailableSites(availableSites)
       )
