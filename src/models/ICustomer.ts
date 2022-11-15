@@ -1,5 +1,4 @@
 interface CustomerInterface {
-  customerId: string;
   name: string;
   rvLength: number;
   rvType: string;

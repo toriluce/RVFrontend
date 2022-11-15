@@ -24,7 +24,7 @@
   flex: 1;
 }
 
-.finalBookButtonBox {
+.bookButtonBox {
   background-color: rgba(181, 199, 188, 0.9);
   flex: 1;
   padding: 1em;
@@ -34,6 +34,6 @@
   flex-direction: column;
 }
 
-.finalBookButton {
+.bookButton {
   margin: 10px;
 }

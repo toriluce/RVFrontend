@@ -35,7 +35,7 @@ const AvailableSites = (props: {
         setAvailableSites(availableSites)
       )
       .catch((err) => console.log(err));
-  }, []);
+  }, [props.startDate, props.endDate, props.campgroundId]);
 
   return (
     <div>
@@ -51,10 +51,15 @@ const AvailableSites = (props: {
           );
         })
       ) : (
+        <div></div>
+      )}
+      {availableSites.length < 0 ? (
         <div className="noAvailability">
           <h1>No available sites were found within specified date.</h1>
           <h2>Please enter a different date.</h2>
         </div>
+      ) : (
+        <div></div>
       )}
     </div>
   );

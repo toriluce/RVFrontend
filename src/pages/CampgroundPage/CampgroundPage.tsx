@@ -35,8 +35,9 @@ const CampgroundPage = () => {
   const [endDate, setEndDate] = useState("");
 
   const checkAvailabilityButtonClick = () => {
-    if (startDate != null && endDate != null && DateTime.fromISO(startDate) < DateTime.fromISO(endDate)) {
+    if (startDate != null && endDate != null && startDate < endDate) {
       setIsDatesSubmitted(true);
+      setIsIncorrectDate(false);
     } else {
       setIsIncorrectDate(true);
     }
@@ -97,7 +98,7 @@ const CampgroundPage = () => {
       {isIncorrectDate ? (
         <div className="invalidDateRange">
           <h1>You have entered an invalid date range.</h1>
-          <h2>Please refresh the page to select a new range.</h2>
+          <h2>Please select a new range.</h2>
         </div>
       ) : (
         <div></div>
@@ -108,6 +109,7 @@ const CampgroundPage = () => {
           campgroundId={campgroundId}
           startDate={startDate}
           endDate={endDate}
+          campgroundImage={campground.photos[0]}
         />
       ) : (
         <div></div>

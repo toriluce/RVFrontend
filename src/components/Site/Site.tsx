@@ -1,12 +1,7 @@
-import { useState } from "react";
-import { URL, HEADERS } from "../../config";
-
-import Alert from "../Alert/Alert";
-
+import { useNavigate } from "react-router-dom";
 import SiteInterface from "../../models/ISite";
 
 import "./Site.css";
-import UnavailableSiteInterface from "../../models/IUnavailableSite";
 
 interface siteComponentPropsInterface {
   site: SiteInterface;
@@ -15,26 +10,7 @@ interface siteComponentPropsInterface {
 }
 
 const Site = (props: siteComponentPropsInterface) => {
-  const unavailableSite: UnavailableSiteInterface = {
-    campgroundId: props.site.campgroundId,
-    siteId: props.site.siteId,
-    date: props.startDate,
-    reservationCompleted: false,
-    customerId: "C.4c007010-76f9-466a-a70d-3ecbe6104ce8",
-    reservationId: ""
-  };
-
-  const [isBookingRequested, setIsBookingRequested] = useState(false);
-
-  const reserveNowButtonClick = () => {
-    fetch(`${URL}/admin/unavailableSite`, {
-      method: "POST",
-      mode: "cors",
-      headers: HEADERS,
-      body: JSON.stringify(unavailableSite),
-    });
-    setIsBookingRequested(true);
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="availableSiteDisplay">
@@ -58,18 +34,23 @@ const Site = (props: siteComponentPropsInterface) => {
         </div>
       </div>
 
-      <div className="finalBookButtonBox">
+      <div className="bookButtonBox">
         <h1>${props.site.pricePerNight} / night</h1>
         <button
-          className="button finalBookButton"
-          onClick={reserveNowButtonClick}
+          className="button bookButton"
+          onClick={() => {
+            navigate("/reservations", {
+              state: {
+                site: props.site,
+                endDate: props.endDate,
+                startDate: props.startDate,
+              },
+            });
+          }}
         >
-          Reserve Now
+          Book Now
         </button>
       </div>
-      {isBookingRequested ? (
-        <Alert type="success" message="Reservation Confirmed!" />
-      ) : null}
     </div>
   );
 };
