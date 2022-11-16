@@ -6,6 +6,7 @@ import Site from "../Site/Site";
 import SiteInterface from "../../models/ISite";
 
 import "./AvailableSites.css";
+import CampgroundInterface from "../../models/ICampground";
 
 const getAvailableSites = async (
   campgroundId: string,
@@ -23,19 +24,19 @@ const getAvailableSites = async (
 };
 
 const AvailableSites = (props: {
-  campgroundId: string;
+  campground: CampgroundInterface;
   startDate: string;
   endDate: string;
 }) => {
   const [availableSites, setAvailableSites] = useState<SiteInterface[]>([]);
 
   useEffect(() => {
-    getAvailableSites(props.campgroundId, props.startDate, props.endDate)
+    getAvailableSites(props.campground.campgroundId, props.startDate, props.endDate)
       .then((availableSites: SiteInterface[]) =>
         setAvailableSites(availableSites)
       )
       .catch((err) => console.log(err));
-  }, [props.startDate, props.endDate, props.campgroundId]);
+  }, [props.startDate, props.endDate, props.campground.campgroundId]);
 
   return (
     <div>
@@ -44,6 +45,7 @@ const AvailableSites = (props: {
           return (
             <Site
               key={site.siteId}
+              campground={props.campground}
               site={site}
               startDate={props.startDate}
               endDate={props.endDate}

@@ -106,10 +106,9 @@ const CampgroundPage = () => {
       {isDatesSubmitted ? (
         <AvailableSites
           key={campgroundId}
-          campgroundId={campgroundId}
+          campground={campground}
           startDate={startDate}
           endDate={endDate}
-          campgroundImage={campground.photos[0]}
         />
       ) : (
         <div></div>

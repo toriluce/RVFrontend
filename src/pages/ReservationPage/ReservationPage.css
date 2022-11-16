@@ -10,6 +10,10 @@
   padding-left: 1em;
 }
 
+.reservationText h3 {
+  padding: 0;
+}
+
 .reserveButton {
   margin-bottom: 1em;
   font-size: large;
@@ -25,4 +29,8 @@
 
 .campgroundLink {
   color: #4e6c50;
+}
+
+.totalCostText {
+  margin: 0;
 }

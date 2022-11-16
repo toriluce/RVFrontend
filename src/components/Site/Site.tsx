@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import CampgroundInterface from "../../models/ICampground";
 import SiteInterface from "../../models/ISite";
 
 import "./Site.css";
 
 interface siteComponentPropsInterface {
+  campground: CampgroundInterface;
   site: SiteInterface;
   startDate: string;
   endDate: string;
@@ -16,8 +18,8 @@ const Site = (props: siteComponentPropsInterface) => {
     <div className="availableSiteDisplay">
       <img
         className="siteImage"
-        src="https://campgroundsprojectcampgroundimages.s3.amazonaws.com/canyonPhoto1.JPG"
-        alt="Available Site"
+        src={props.campground.photos[0]}
+        alt={props.campground.photos[0]}
       ></img>
       <div className="siteInformationBox">
         <div className="siteNameDescriptionBox">
@@ -41,6 +43,7 @@ const Site = (props: siteComponentPropsInterface) => {
           onClick={() => {
             navigate("/reservations", {
               state: {
+                campground: props.campground,
                 site: props.site,
                 endDate: props.endDate,
                 startDate: props.startDate,

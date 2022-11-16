@@ -15,19 +15,21 @@ import "./ReservationPage.css";
 
 const ReservationPage = () => {
   const { state } = useLocation();
-  const { site, endDate, startDate, campgroundImage } = state;
+  const { campground, site, endDate, startDate } = state;
 
   const [isReservationCompleted, setIsReservationCompleted] = useState(false);
 
-  const allReservationDates = [endDate];
+  const allReservationDates = [startDate, endDate];
 
   // const getAllReservationDates = () => {
-  //   while (startDate <= endDate) {
-  //     allReservationDates.push(DateTime.fromISO(startDate + 1));
+  //   let currentDate = startDate;
+  //   while (currentDate <= endDate) {
+  //     allReservationDates.push(currentDate);
+  //     currentDate + 1;
   //   }
   // };
+
   // getAllReservationDates();
-  // console.log("reservation dates list " + allReservationDates);
 
   allReservationDates.map((reservationDate) => {
     const unavailableSite: UnavailableSiteInterface = {
@@ -70,18 +72,18 @@ const ReservationPage = () => {
   return (
     <div className="App">
       <Header />
-      {/* <img
+      <img
         className="campgroundMainImage"
-        src={campgroundImage}
-        alt={campgroundImage}
-      ></img> */}
+        src={campground.photos[0]}
+        alt={campground.photos[0]}
+      ></img>
       <h1>Confirm Your Reservation Information</h1>
       <div className="reservationInformationBox">
         <a href={`/campgrounds/${site.campgroundId}`} key={site.campgroundId}>
           <img
             className="siteImage"
-            src="https://campgroundsprojectcampgroundimages.s3.amazonaws.com/canyonPhoto1.JPG"
-            alt="Available Site"
+            src={campground.photos[0]}
+            alt={campground.photos[0]}
           ></img>
         </a>
         <div className="reservationText">
@@ -90,7 +92,7 @@ const ReservationPage = () => {
             href={`/campgrounds/${site.campgroundId}`}
             key={site.campgroundId}
           >
-            <h3 className="campgroundTitle">{site.campgroundId}</h3>
+            <h2 className="campgroundTitle">{campground.name}</h2>
           </a>
           <h3>
             {site.siteType} Site #{site.campgroundSiteNumber}
@@ -98,7 +100,7 @@ const ReservationPage = () => {
           <p>From: {startDate}</p>
           <p>To: {endDate}</p>
           <p>Price Per Night: ${site.pricePerNight}</p>
-          <h3>
+          <h3 className="totalCostText">
             Total Cost: ${site.pricePerNight * allReservationDates.length}
           </h3>
         </div>
