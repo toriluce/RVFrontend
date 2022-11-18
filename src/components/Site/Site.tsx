@@ -1,41 +1,61 @@
-import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import CampgroundInterface from "../../models/ICampground";
+import SiteInterface from "../../models/ISite";
+
 import "./Site.css";
-import { URL, HEADERS } from "../../config";
-import Alert from "../Alert/Alert";
 
-function Site() {
-  const dateToReserve = {
-    siteId: "testsite",
-    date: "12/01/2022",
-    campgroundId: "000",
-    customerId: "000",
-    reservationId: "000",
-    reservationCompleted: true,
-  };
+interface siteComponentPropsInterface {
+  campground: CampgroundInterface;
+  site: SiteInterface;
+  startDate: string;
+  endDate: string;
+}
 
-  const [isSuccessfullyBooked, setIsSuccessfullyBooked] = useState(false);
-
-  const handleClick = () => {
-    fetch(`${URL}/admin/reservedDate`, {
-      method: "POST",
-      mode: "cors",
-      headers: HEADERS,
-      body: JSON.stringify(dateToReserve),
-    });
-    setIsSuccessfullyBooked(true);
-  };
+const Site = (props: siteComponentPropsInterface) => {
+  const navigate = useNavigate();
 
   return (
-    <div className="availableSite">
-      <p>This is an available site.</p>
-      <button className="bookButton finalBookButton" onClick={handleClick}>
-        Book Now
-      </button>
-      {isSuccessfullyBooked ? (
-        <Alert type="success" message="Reservation Confirmed!" />
-      ) : null}
+    <div className="availableSiteDisplay">
+      <img
+        className="siteImage"
+        src={props.campground.photos[0]}
+        alt={props.campground.photos[0]}
+      ></img>
+      <div className="siteInformationBox">
+        <div className="siteNameDescriptionBox">
+          <h1>
+            {props.site.siteType} Site #{props.site.campgroundSiteNumber}
+          </h1>
+          <p>Features:</p>
+          <ul>
+            {props.site.water ? <li>Water</li> : undefined}
+            {props.site.amp30 ? <li>30 Amp</li> : undefined}
+            {props.site.amp50 ? <li>50 Amp</li> : undefined}
+            {props.site.sewer ? <li>Sewer</li> : undefined}
+          </ul>
+        </div>
+      </div>
+
+      <div className="bookButtonBox">
+        <h1>${props.site.pricePerNight} / night</h1>
+        <button
+          className="button bookButton"
+          onClick={() => {
+            navigate("/reservations", {
+              state: {
+                campground: props.campground,
+                site: props.site,
+                endDate: props.endDate,
+                startDate: props.startDate,
+              },
+            });
+          }}
+        >
+          Book Now
+        </button>
+      </div>
     </div>
   );
-}
+};
 
 export default Site;

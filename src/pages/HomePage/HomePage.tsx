@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import Header from "../Header/Header";
-import Campground from "../Campground/Campground";
-import Footer from "../Footer/Footer";
 import { URL, HEADERS } from "../../config";
+
+import Header from "../../components/Header/Header";
+import Campground from "../../components/Campground/Campground";
+import Footer from "../../components/Footer/Footer";
+
 import CampgroundInterface from "../../models/ICampground"
 
 const getCampgrounds = async () => {

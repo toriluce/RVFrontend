@@ -1,12 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import "./Alert.css"
+import React, { useState } from "react";
+
+import "./Alert.css";
 
 interface AlertProps {
-  type: "success" | "error",
-  message: string
+  type: "success" | "error";
+  message: string;
 }
-
 
 export default function Alert(props: AlertProps) {
   const [isShow, setIsShow] = useState(true);
@@ -22,7 +21,6 @@ export default function Alert(props: AlertProps) {
         &times;
       </span>
       {props.message}
-      
     </div>
   );
 }

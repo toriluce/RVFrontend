@@ -1,3 +1,14 @@
+.headerBox {
+  background-color: white;
+  margin: 0;
+  padding-bottom: 30px;
+  padding-top: 10px;
+}
+
+.homeLink {
+  color: #4e6c50;
+}
+
 .brandTitle {
   font-weight: bolder;
   color: #4e6c50;
@@ -5,15 +16,4 @@
   font-size: 6em;
   font-style: italic;
   margin: 0;
-}
-
-.homeLink {
-  color: #4e6c50;
-}
-
-.headerBox {
-  background-color: white;
-  margin: 0;
-  padding-bottom: 30px;
-  padding-top: 10px;
 }
