@@ -34,6 +34,10 @@ const CampgroundPage = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  const startDateTest = 2
+  const endDateTest = 2
+  const totalNights = endDateTest - startDateTest;
+
   const checkAvailabilityButtonClick = () => {
     if (startDate != null && endDate != null && startDate < endDate) {
       setIsDatesSubmitted(true);
@@ -85,7 +89,9 @@ const CampgroundPage = () => {
           }}
         ></input>
       </div>
-      <br />
+
+      {totalNights ? <h3>{totalNights} NIGHTS</h3> : <br />}
+
       <div>
         <button
           onClick={checkAvailabilityButtonClick}

@@ -12,12 +12,16 @@ import CustomerInterface from "../../models/ICustomer";
 import { HEADERS, URL } from "../../config";
 
 import "./ReservationPage.css";
+import CustomerInput from "../../components/CustomerInput/CustomerInput";
 
 const ReservationPage = () => {
   const { state } = useLocation();
   const { campground, site, endDate, startDate } = state;
 
   const [isReservationCompleted, setIsReservationCompleted] = useState(false);
+  const [isReservationReviewed, setIsReservationReviewed] = useState(false);
+  const [isReviewButtonClicked, SetIsReviewButtonClicked] = useState(false);
+
 
   const allReservationDates = [startDate, endDate];
 
@@ -69,6 +73,12 @@ const ReservationPage = () => {
     setIsReservationCompleted(true);
   };
 
+  const reviewButtonClick = () => {
+    setIsReservationReviewed(true);
+    SetIsReviewButtonClicked(true);
+
+  }
+
   return (
     <div className="App">
       <Header />
@@ -105,17 +115,29 @@ const ReservationPage = () => {
           </h3>
         </div>
       </div>
-      <button className="button reserveButton" onClick={reserveNowButtonClick}>
-        Confirm Reservation
-      </button>
+      {isReviewButtonClicked ? <h1>Complete Reservation</h1> : (
+        <button className="button looksGoodButton" onClick={reviewButtonClick}>
+          Looks Good!
+        </button>
+      )}
 
+      {isReservationReviewed ? (
+        <div>
+          <CustomerInput rvType="Fifth-Wheel" rvLength={30} />
+          <button
+            className="button reserveButton"
+            onClick={reserveNowButtonClick}
+          >
+            Confirm Reservation
+          </button>
+        </div>
+      ) : null}
       {isReservationCompleted ? (
         <Alert
           type="success"
           message="Reservation confirmed. You will receive an email from us shortly."
         />
       ) : null}
-
       <VisitUs currentCampgroundId={site.campgroundId} />
       <Footer />
     </div>

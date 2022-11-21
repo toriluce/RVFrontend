@@ -15,7 +15,7 @@
 }
 
 .reserveButton {
-  margin-bottom: 1em;
+  margin: 1em;
   font-size: large;
 }
 
@@ -33,4 +33,8 @@
 
 .totalCostText {
   margin: 0;
+}
+
+.looksGoodButton {
+  margin-bottom: 1em;
 }
