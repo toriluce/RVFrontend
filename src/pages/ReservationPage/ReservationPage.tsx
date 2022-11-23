@@ -59,7 +59,7 @@ const ReservationPage = () => {
         src={campground.photos[0]}
         alt={campground.photos[0]}
       ></img>
-      <h1 className="confirmText">Confirm Your Reservation Information:</h1>
+      <h1 className="confirmationHeader">Confirm Your Reservation Information:</h1>
       {isReservationCompleted ? (
         <Alert
           type="success"

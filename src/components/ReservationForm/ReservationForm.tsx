@@ -46,14 +46,16 @@ const ReservationForm = (props: CustomerProps) => {
   };
   return (
     <div className="completeReservationBox">
+      <h3>RV Information</h3>
       <div className="customerInputBox">
-        <h3>RV Information</h3>
         <label htmlFor="rvTypeInput">RV Type: </label>
         <input id="rvTypeInput" readOnly value={props.rvType}></input>
         <br />
         <label htmlFor="rvLengthInput">RV Type: </label>
         <input id="rvLengthInput" readOnly value={props.rvLength}></input>
-        <h3>Contact Information</h3>
+      </div>
+      <h3>Contact Information</h3>
+      <div className="customerInputBox">
         <label htmlFor="fnameInput">First Name: </label>
         <input
           id="fnameInput"
@@ -85,25 +87,26 @@ const ReservationForm = (props: CustomerProps) => {
             setEmail(event.target.value as any);
           }}
         ></input>
-        <br />
-        <br />
-        <input
-          id="everythingLooksGood"
-          type="checkbox"
-          onChange={(event) => {
-            setEverythingLooksGood(event.target.checked as any);
-          }}
-        ></input>
-        <label htmlFor="everythingLooksGood">Everything Looks Good!</label>
-        {formWasIncomplete &&
-        everythingLooksGood === false &&
-        props.isReservationCompleted === false ? (
-          <Alert
-            type="error"
-            message="Please confirm reservation info by checking the checkbox above."
-          />
-        ) : null}
       </div>
+      <br />
+      <input
+        id="everythingLooksGood"
+        type="checkbox"
+        onChange={(event) => {
+          setEverythingLooksGood(event.target.checked as any);
+        }}
+      ></input>
+      <label htmlFor="everythingLooksGood">Everything Looks Good!</label>
+      {formWasIncomplete &&
+      everythingLooksGood === false &&
+      props.isReservationCompleted === false ? (
+        <Alert
+          type="error"
+          message="Please confirm reservation info by checking the checkbox above."
+        />
+      ) : (
+        <br />
+      )}
       <button className="button reserveButton" onClick={reserveNowButtonClick}>
         Confirm Reservation
       </button>
