@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import CampgroundInterface from "../../models/ICampground";
 import SiteInterface from "../../models/ISite";
 
-import "./Site.css";
+import "./AvailableSite.css";
 
 interface siteComponentPropsInterface {
   campground: CampgroundInterface;
@@ -11,7 +11,7 @@ interface siteComponentPropsInterface {
   endDate: string;
 }
 
-const Site = (props: siteComponentPropsInterface) => {
+const AvailableSite = (props: siteComponentPropsInterface) => {
   const navigate = useNavigate();
 
   return (
@@ -58,4 +58,4 @@ const Site = (props: siteComponentPropsInterface) => {
   );
 };
 
-export default Site;
+export default AvailableSite;

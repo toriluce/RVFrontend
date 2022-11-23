@@ -1,8 +1,8 @@
 import CampgroundInterface from "../../models/ICampground"
 
-import "./Campground.css";
+import "./AvailableCampground.css";
 
-function Campground(props: CampgroundInterface) {
+function AvailableCampground(props: CampgroundInterface) {
   return (
     <div className="campground">
       <img
@@ -22,4 +22,4 @@ function Campground(props: CampgroundInterface) {
   );
 }
 
-export default Campground;
+export default AvailableCampground;

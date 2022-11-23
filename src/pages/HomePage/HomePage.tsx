@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { URL, HEADERS } from "../../config";
 
 import Header from "../../components/Header/Header";
-import Campground from "../../components/Campground/Campground";
+import AvailableCampground from "../../components/AvailableCampground/AvailableCampground";
 import Footer from "../../components/Footer/Footer";
 
 import CampgroundInterface from "../../models/ICampground"
@@ -31,7 +31,7 @@ const HomePage = () => {
         {data.map((campground: CampgroundInterface) => {
           if (campground.name !== "Test RV Resort") {
             return (
-              <Campground
+              <AvailableCampground
                 key={campground.campgroundId}
                 campgroundId={campground.campgroundId}
                 name={campground.name}

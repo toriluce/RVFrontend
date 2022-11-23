@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { URL, HEADERS } from "../../config";
 
-import Site from "../Site/Site";
+import AvailableSite from "../AvailableSite/AvailableSite";
 
 import SiteInterface from "../../models/ISite";
 
-import "./AvailableSites.css";
+import "./FindSites.css";
 import CampgroundInterface from "../../models/ICampground";
 
 const getAvailableSites = async (
@@ -23,7 +23,7 @@ const getAvailableSites = async (
   return await res.json();
 };
 
-const AvailableSites = (props: {
+const FindSites = (props: {
   campground: CampgroundInterface;
   startDate: string;
   endDate: string;
@@ -43,7 +43,7 @@ const AvailableSites = (props: {
       {availableSites.length > 0 ? (
         availableSites.map((site: SiteInterface) => {
           return (
-            <Site
+            <AvailableSite
               key={site.siteId}
               campground={props.campground}
               site={site}
@@ -67,4 +67,4 @@ const AvailableSites = (props: {
   );
 };
 
-export default AvailableSites;
+export default FindSites;

@@ -4,7 +4,7 @@ import { URL, HEADERS } from "../../config";
 import { DateTime } from "luxon";
 
 import Navbar from "../../components/Navbar/Navbar";
-import AvailableSites from "../../components/AvailableSites/AvailableSites";
+import FindSites from "../../components/FindSites/FindSites";
 import VisitUs from "../../components/VisitUs/VisitUs";
 import Footer from "../../components/Footer/Footer";
 
@@ -110,7 +110,7 @@ const CampgroundPage = () => {
         <div></div>
       )}
       {isDatesSubmitted ? (
-        <AvailableSites
+        <FindSites
           key={campgroundId}
           campground={campground}
           startDate={startDate}
