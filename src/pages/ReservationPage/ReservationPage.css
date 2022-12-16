@@ -1,36 +1,20 @@
-.reservationInformationBox {
-  background-color: rgb(57, 81, 68, 0.5);
-  margin: 1em;
-  padding: 5px;
-  display: flex;
+.campgroundConfirmationImage {
+  width: 1000px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-top: 20px;
 }
 
-.reservationText {
-  text-align: left;
-  padding-left: 1em;
-}
-
-.reservationText h3 {
-  padding: 0;
-}
-
-.reserveButton {
-  margin-bottom: 1em;
-  font-size: large;
-}
-
-.campgroundTitle {
-  font-weight: bolder;
-  color: #4e6c50;
-  text-shadow: 0.05em 0.05em 0 rgb(57, 81, 68, 0.5);
+.confirmationHeader {
   font-style: italic;
-  margin: 0;
-}
-
-.campgroundLink {
   color: #4e6c50;
 }
 
-.totalCostText {
-  margin: 0;
+.doublePageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
 }
+

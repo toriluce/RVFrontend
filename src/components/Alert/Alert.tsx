@@ -17,9 +17,9 @@ export default function Alert(props: AlertProps) {
 
   return (
     <div className={`alert ${props.type} ${!isShow ? "hide" : ""}`}>
-      <span className="closebtn" onClick={handleClose}>
+      {(props.type !== "error") ? <span className="closebtn" onClick={handleClose}>
         &times;
-      </span>
+      </span> : <span></span>}
       {props.message}
     </div>
   );

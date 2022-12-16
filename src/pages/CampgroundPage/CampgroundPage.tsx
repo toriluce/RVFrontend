@@ -4,7 +4,7 @@ import { URL, HEADERS } from "../../config";
 import { DateTime } from "luxon";
 
 import Navbar from "../../components/Navbar/Navbar";
-import AvailableSites from "../../components/AvailableSites/AvailableSites";
+import FindSites from "../../components/FindSites/FindSites";
 import VisitUs from "../../components/VisitUs/VisitUs";
 import Footer from "../../components/Footer/Footer";
 
@@ -33,6 +33,10 @@ const CampgroundPage = () => {
 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+
+  const startDateTest = 2
+  const endDateTest = 2
+  const totalNights = endDateTest - startDateTest;
 
   const checkAvailabilityButtonClick = () => {
     if (startDate != null && endDate != null && startDate < endDate) {
@@ -85,7 +89,9 @@ const CampgroundPage = () => {
           }}
         ></input>
       </div>
-      <br />
+
+      {totalNights ? <h3>{totalNights} NIGHTS</h3> : <br />}
+
       <div>
         <button
           onClick={checkAvailabilityButtonClick}
@@ -104,7 +110,7 @@ const CampgroundPage = () => {
         <div></div>
       )}
       {isDatesSubmitted ? (
-        <AvailableSites
+        <FindSites
           key={campgroundId}
           campground={campground}
           startDate={startDate}

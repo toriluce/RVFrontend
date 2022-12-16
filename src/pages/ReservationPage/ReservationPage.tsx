@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { DateTime } from "luxon";
 
 import Header from "../../components/Header/Header";
 import Alert from "../../components/Alert/Alert";
@@ -8,18 +7,19 @@ import VisitUs from "../../components/VisitUs/VisitUs";
 import Footer from "../../components/Footer/Footer";
 
 import UnavailableSiteInterface from "../../models/IUnavailableSite";
-import CustomerInterface from "../../models/ICustomer";
 import { HEADERS, URL } from "../../config";
 
 import "./ReservationPage.css";
+import ReservationForm from "../../components/ReservationForm/ReservationForm";
+import ReservedSite from "../../components/ReservedSite/ReservedSite";
 
 const ReservationPage = () => {
   const { state } = useLocation();
   const { campground, site, endDate, startDate } = state;
 
-  const [isReservationCompleted, setIsReservationCompleted] = useState(false);
-
   const allReservationDates = [startDate, endDate];
+
+  // TODO: add all reservation dates to allReservationDates list
 
   // const getAllReservationDates = () => {
   //   let currentDate = startDate;
@@ -49,73 +49,38 @@ const ReservationPage = () => {
     });
   });
 
-  const reserveNowButtonClick = () => {
-    // set reservationCompleted to true on unavailableSites
-    // set reservationCompleted to true on Reservation
-    const newCustomer: CustomerInterface = {
-      name: "",
-      rvLength: 0,
-      rvType: "",
-      phone: "",
-      email: "",
-    };
-    fetch(`${URL}/admin/customer`, {
-      method: "POST",
-      mode: "cors",
-      headers: HEADERS,
-      body: JSON.stringify(newCustomer),
-    });
-    // add customerId to Reservation
-    setIsReservationCompleted(true);
-  };
+  const [isReservationCompleted, setIsReservationCompleted] = useState(false);
 
   return (
     <div className="App">
       <Header />
       <img
-        className="campgroundMainImage"
+        className="campgroundConfirmationImage"
         src={campground.photos[0]}
         alt={campground.photos[0]}
       ></img>
-      <h1>Confirm Your Reservation Information</h1>
-      <div className="reservationInformationBox">
-        <a href={`/campgrounds/${site.campgroundId}`} key={site.campgroundId}>
-          <img
-            className="siteImage"
-            src={campground.photos[0]}
-            alt={campground.photos[0]}
-          ></img>
-        </a>
-        <div className="reservationText">
-          <a
-            className="campgroundLink"
-            href={`/campgrounds/${site.campgroundId}`}
-            key={site.campgroundId}
-          >
-            <h2 className="campgroundTitle">{campground.name}</h2>
-          </a>
-          <h3>
-            {site.siteType} Site #{site.campgroundSiteNumber}
-          </h3>
-          <p>From: {startDate}</p>
-          <p>To: {endDate}</p>
-          <p>Price Per Night: ${site.pricePerNight}</p>
-          <h3 className="totalCostText">
-            Total Cost: ${site.pricePerNight * allReservationDates.length}
-          </h3>
-        </div>
-      </div>
-      <button className="button reserveButton" onClick={reserveNowButtonClick}>
-        Confirm Reservation
-      </button>
-
+      <h1 className="confirmationHeader">Confirm Your Reservation Information:</h1>
       {isReservationCompleted ? (
         <Alert
           type="success"
           message="Reservation confirmed. You will receive an email from us shortly."
         />
       ) : null}
-
+      <div className="doublePageContainer">
+        <ReservedSite
+          site={site}
+          campground={campground}
+          startDate={startDate}
+          endDate={endDate}
+          lengthOfStay={allReservationDates.length}
+        />
+        <ReservationForm
+          rvType="Fifth-Wheel"
+          rvLength={30}
+          setIsReservationCompleted={setIsReservationCompleted}
+          isReservationCompleted={isReservationCompleted}
+        />
+      </div>
       <VisitUs currentCampgroundId={site.campgroundId} />
       <Footer />
     </div>
