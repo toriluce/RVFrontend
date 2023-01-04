@@ -13,26 +13,26 @@ interface reservedSiteInterface {
 
 const ReservedSite = (props: reservedSiteInterface) => {
   return (
-    <section className="reservedSiteInformationBox">
+    <section className="reserved-site-info-container">
       <div>
         <a
           href={`/campgrounds/${props.site.campgroundId}`}
           key={props.site.campgroundId}
         >
           <img
-            className="siteConfirmationImage"
+            className="reserved-site-image"
             src={props.campground.photos[0]}
             alt={props.campground.photos[0]}
           ></img>
         </a>
       </div>
-      <div className="reservationText">
+      <div className="reserved-site-text-container">
         <a
-          className="campgroundLink"
+          className="reserved-site-campground-link"
           href={`/campgrounds/${props.site.campgroundId}`}
           key={props.site.campgroundId}
         >
-          <h2 className="campgroundTitle">{props.campground.name}</h2>
+          <h2 className="reserved-site-campground-title">{props.campground.name}</h2>
         </a>
         <h3>
           {props.site.siteType} Site #{props.site.campgroundSiteNumber}
@@ -40,7 +40,7 @@ const ReservedSite = (props: reservedSiteInterface) => {
         <p>From: {props.startDate}</p>
         <p>To: {props.endDate}</p>
         <p>Price Per Night: ${props.site.pricePerNight}</p>
-        <h3 className="totalCostText">
+        <h3 className="reserved-site-total-cost">
           Total Cost: ${props.site.pricePerNight * props.lengthOfStay}
         </h3>
       </div>

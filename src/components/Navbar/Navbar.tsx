@@ -2,9 +2,9 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <div className="navbarContainer">
-      <a className="homeLink" href="/">
-        <h1 className="navbarBrandTitle">Campground Finder</h1>
+    <div className="navbar-container">
+      <a href="/">
+        <h1 className="navbar-brand-title">Campground Finder</h1>
       </a>
     </div>
   );

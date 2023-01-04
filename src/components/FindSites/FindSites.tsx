@@ -55,8 +55,8 @@ const FindSites = (props: {
       ) : (
         <div></div>
       )}
-      {availableSites.length < 0 ? (
-        <div className="noAvailability">
+      {availableSites.length < 1 ? (
+        <div className="no-availability">
           <h1>No available sites were found within specified date.</h1>
           <h2>Please enter a different date.</h2>
         </div>

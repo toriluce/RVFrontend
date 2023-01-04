@@ -41,9 +41,9 @@ const ReservationForm = (props: CustomerProps) => {
     }
   };
   return (
-    <div className="completeReservationBox">
+    <div className="reservation-form-containter">
       <h3>RV Information</h3>
-      <div className="customerInputBox">
+      <div className="reservation-form-inputs">
         <label htmlFor="rvTypeInput">RV Type: </label>
         <input id="rvTypeInput" readOnly value={props.rvType}></input>
         <br />
@@ -112,7 +112,7 @@ const ReservationForm = (props: CustomerProps) => {
       ) : (
         <br />
       )}
-      <button className="button reserveButton" onClick={reserveNowButtonClick}>
+      <button className="button reserve-button" onClick={reserveNowButtonClick}>
         Confirm Reservation
       </button>
     </div>

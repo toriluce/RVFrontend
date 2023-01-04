@@ -1,21 +1,10 @@
-.campgroundNameBox {
-  background-color: white;
-  padding: 20px;
-}
-
-.bookYourStayText {
+.book-your-stay {
   font-size: 3rem;
   margin: 0;
   font-style: italic;
 }
 
-.campgroundNameText {
-  font-size: 5em;
-  margin: 0;
-  color: rgb(57, 81, 68);
-}
-
-.campgroundMainImage {
+.campground-main-image {
   height: 20em;
   width: 90%;
   object-fit: cover;
@@ -23,30 +12,41 @@
   margin-top: 20px;
 }
 
-.checkAvailabilityButton {
+.campground-name-container {
+  background-color: white;
+  padding: 20px;
+}
+
+.campground-name-text {
+  font-size: 5em;
+  margin: 0;
+  color: rgb(57, 81, 68);
+}
+
+.check-availability-button {
   margin-bottom: 21.44px;
   font-style: italic;
 }
 
-.invalidDateRange {
+.invalid-date-range {
   background-color: rgb(100, 18, 18, 0.5);
   margin: 20px;
   padding: 5px;
 }
 
-.invalidDateRange h1 {
+.invalid-date-range h1 {
   margin-bottom: 0;
   color: rgb(100, 18, 18);
 }
 
-.invalidDateRange h2 {
+.invalid-date-range h2 {
   margin-top: 0;
   color: rgb(100, 18, 18);
 }
 
 /* MOBILE + TABLET PORTRAIT */
 @media screen and (max-device-width: 780px) and (orientation: portrait) {
-  .campgroundMainImage {
+  .campground-main-image {
     height: 10em;
   }
 }

@@ -1,9 +1,8 @@
-.reservedSiteInformationBox {
-  background-color: rgb(57, 81, 68, 0.5);
-  padding: 5px;
+.reserved-site-campground-link {
+  color: #4e6c50;
 }
 
-.campgroundTitle {
+.reserved-site-campground-title {
   font-weight: bolder;
   color: #4e6c50;
   text-shadow: 0.05em 0.05em 0 rgb(57, 81, 68, 0.5);
@@ -11,24 +10,25 @@
   margin: 0;
 }
 
-.campgroundLink {
-  color: #4e6c50;
-}
-
-.reservationText {
-  padding: 1em;
-}
-
-.siteConfirmationImage {
+.reserved-site-image {
   object-fit: cover;
   width: 25rem;
   height: 15rem;
 }
 
-.reservationText h3 {
+.reserved-site-info-container {
+  background-color: rgb(57, 81, 68, 0.5);
+  padding: 5px;
+}
+
+.reserved-site-text-container {
+  padding: 1em;
+}
+
+.reserved-site-text-container h3 {
   padding: 0;
 }
 
-.totalCostText {
+.reserved-site-total-cost {
   margin: 0;
 }

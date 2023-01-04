@@ -43,14 +43,14 @@ const ReservationPage = () => {
     <div className="App">
       <Header />
       <img
-        className="campgroundConfirmationImage"
+        className="reservation-campground-image"
         src={campground.photos[0]}
         alt={campground.photos[0]}
       ></img>
-      <h1 className="confirmationHeader">
+      <h1 className="confirm-your-reservation">
         Confirm Your Reservation Information:
       </h1>
-      <div className="doublePageContainer">
+      <div className="reservation-info-container">
         <ReservedSite
           site={site}
           campground={campground}

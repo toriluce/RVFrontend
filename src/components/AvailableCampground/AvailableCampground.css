@@ -1,22 +1,22 @@
-.campground {
+.available-campground {
   color: #4E6C50;
   padding: 20px;
 }
 
-.campground h1 {
-  font-size: 3em;
-}
-
-.campgroundImage {
-  width: 90%;
+.available-campground-image {
+  border-radius: 30px;
   height: 400px;
   object-fit: cover;
-  border-radius: 30px;
+  width: 90%;
+}
+
+.available-campground-name {
+  font-size: 3em;
 }
 
 /* MOBILE + TABLET PORTRAIT */
 @media screen and (max-device-width: 780px) and (orientation: portrait) {
-  .campgroundImage {
+  .available-campground-image {
     height: 10em;
   }
 }

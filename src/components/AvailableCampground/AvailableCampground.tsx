@@ -4,13 +4,13 @@ import "./AvailableCampground.css";
 
 function AvailableCampground(props: CampgroundInterface) {
   return (
-    <div className="campground">
+    <div className="available-campground">
       <img
-        className="campgroundImage"
+        className="available-campground-image"
         src={props.photos[0]}
         alt={props.photos[0]}
       ></img>
-      <h1>{props.name}</h1>
+      <h1 className="available-campground-name">{props.name}</h1>
       <p>{props.address}</p>
       <p>{props.description}</p>
       <a href={`/campgrounds/${props.campgroundId}`}>

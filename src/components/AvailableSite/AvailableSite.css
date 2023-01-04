@@ -1,50 +1,50 @@
-.availableSiteDisplay {
+.available-site {
   background-color: rgb(57, 81, 68, 0.5);
+  display: flex;
   margin: 20px;
   padding: 5px;
-  display: flex;
 }
 
-.bookButton {
-  margin: 10px;
+.available-site-description-container {
+  flex: 1;
 }
 
-.bookButtonBox {
-  align-items: center;
-  background-color: rgba(181, 199, 188, 0.9);
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  justify-content: center;
-  align-self: stretch;
-}
-
-.siteImage {
-  width: 25rem;
+.available-site-image {
   height: 15rem;
   object-fit: cover;
+  width: 25rem;
 }
 
-.siteInformationBox {
+.available-site-info-container {
   align-items: stretch;
   display: flex;
   flex-direction: column;
   flex-grow: 3;
-  text-align: left;
   padding: 1em;
+  text-align: left;
 }
 
-.siteNameDescriptionBox {
-  flex: 1;
+.book-button {
+  margin: 10px;
+}
+
+.book-button-container {
+  align-items: center;
+  align-self: stretch;
+  background-color: rgba(181, 199, 188, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
 }
 
 /* MOBILE + TABLET PORTRAIT */
 @media screen and (max-device-width: 780px) and (orientation: portrait) {
-  .availableSiteDisplay {
+  .available-site {
     flex-direction: column;
   }
 
-  .siteImage {
+  .available-site-image {
     width: 100%;
   }
 }

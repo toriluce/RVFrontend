@@ -1,13 +1,13 @@
-.completeReservationBox {
+.reserve-button {
+  font-size: large;
+  margin: 1em;
+}
+
+.reservation-form-containter {
   padding: 50px;
   width: 510px;
 }
 
-.customerInputBox {
+.reservation-form-inputs {
   align-items: left;
-}
-
-.reserveButton {
-  margin: 1em;
-  font-size: large;
 }

@@ -1,13 +1,13 @@
-.noAvailability {
+.no-availability {
   background-color: rgb(57, 81, 68, 0.5);
   margin: 20px;
   padding: 5px;
 }
 
-.noAvailability h1 {
+.no-availability h1 {
   margin-bottom: 0;
 }
 
-.noAvailability h2 {
+.no-availability h2 {
   margin-top: 0;
 }

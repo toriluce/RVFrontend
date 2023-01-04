@@ -1,26 +1,26 @@
-.headerBox {
+.header-container {
   background-color: white;
   margin: 0;
   padding-bottom: 30px;
   padding-top: 10px;
 }
 
-.homeLink {
+.header-brand-title {
   color: #4e6c50;
-}
-
-.brandTitle {
-  font-weight: bolder;
-  color: #4e6c50;
-  text-shadow: 0.05em 0.05em 0 rgb(57, 81, 68, 0.5);
   font-size: 5em;
   font-style: italic;
+  font-weight: bolder;
   margin: 0;
+  text-shadow: 0.05em 0.05em 0 rgb(57, 81, 68, 0.5);
+}
+
+.header-home-link {
+  color: #4e6c50;
 }
 
 /* MOBILE + TABLET PORTRAIT */
 @media screen and (max-device-width: 780px) and (orientation: portrait) {
-  .brandTitle {
+  .header-brand-title {
     font-size: 4em;
   }
 }

@@ -56,12 +56,12 @@ const CampgroundPage = () => {
   return campground ? (
     <div className="App">
       <Navbar />
-      <div className="campgroundNameBox">
-        <h2 className="bookYourStayText">Book Your Stay at</h2>
-        <h1 className="campgroundNameText">{campground.name}</h1>
+      <div className="campground-name-container">
+        <h2 className="book-your-stay">Book Your Stay at</h2>
+        <h1 className="campground-name-text ">{campground.name}</h1>
       </div>
       <img
-        className="campgroundMainImage"
+        className="campground-main-image"
         src={campground.photos[0]}
         alt={campground.photos[0]}
       ></img>
@@ -95,14 +95,14 @@ const CampgroundPage = () => {
       <div>
         <button
           onClick={checkAvailabilityButtonClick}
-          className="button checkAvailabilityButton"
+          className="button check-availability-button"
           type="button"
         >
           Check Availability
         </button>
       </div>
       {isIncorrectDate ? (
-        <div className="invalidDateRange">
+        <div className="invalid-date-range">
           <h1>You have entered an invalid date range.</h1>
           <h2>Please select a new range.</h2>
         </div>

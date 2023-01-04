@@ -15,14 +15,14 @@ const AvailableSite = (props: siteComponentPropsInterface) => {
   const navigate = useNavigate();
 
   return (
-    <div className="availableSiteDisplay">
+    <div className="available-site">
       <img
-        className="siteImage"
+        className="available-site-image"
         src={props.campground.photos[0]}
         alt={props.campground.photos[0]}
       ></img>
-      <div className="siteInformationBox">
-        <div className="siteNameDescriptionBox">
+      <div className="available-site-info-container">
+        <div className="available-site-description-container">
           <h1>
             {props.site.siteType} Site #{props.site.campgroundSiteNumber}
           </h1>
@@ -36,10 +36,10 @@ const AvailableSite = (props: siteComponentPropsInterface) => {
         </div>
       </div>
 
-      <div className="bookButtonBox">
+      <div className="book-button-container">
         <h1>${props.site.pricePerNight} / night</h1>
         <button
-          className="button bookButton"
+          className="button book-button"
           onClick={() => {
             navigate("/reservations", {
               state: {

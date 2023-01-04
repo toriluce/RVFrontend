@@ -1,38 +1,38 @@
 .alert {
-  position: relative;
-  padding: 1em;
-  margin: 2em;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  margin: 2em;
+  padding: 1em;
+  position: relative;
 }
 
-.error {
-  color: #842029;
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
-}
-
-.success {
-  color: #0f5132;
-  background-color: #d1e7dd;
-  border-color: #badbcc;
-}
-
-.closebtn {
-  margin-left: 15px;
+.close-button {
   color: white;
-  font-weight: bold;
+  cursor: pointer;
   float: right;
   font-size: 22px;
+  font-weight: bold;
   line-height: 20px;
-  cursor: pointer;
+  margin-left: 15px;
   transition: 0.3s;
 }
 
-.closebtn:hover {
+.close-button:hover {
   color: black;
+}
+
+.error {
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  color: #842029;
 }
 
 .hide {
   display: none;
+}
+
+.success {
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+  color: #0f5132;
 }

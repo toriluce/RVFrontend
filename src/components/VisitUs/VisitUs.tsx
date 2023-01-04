@@ -26,8 +26,8 @@ function VisitUs(props: Props) {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="visitUsBox">
-      <h1 className="visitUsText">Visit us at our other campgrounds!</h1>
+    <div className="visit-us-container">
+      <h1 className="visit-us-text">Visit us at our other campgrounds!</h1>
       <div>
         {data.map((campground: CampgroundInterface) => {
           if (
@@ -40,7 +40,7 @@ function VisitUs(props: Props) {
                 key={campground.campgroundId}
               >
                 <img
-                  className="visitUsPhotos"
+                  className="visit-us-photos"
                   src={campground.photos[0]}
                   alt={campground.photos[0]}
                 ></img>
