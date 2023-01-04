@@ -19,18 +19,6 @@ const ReservationPage = () => {
 
   const allReservationDates = [startDate, endDate];
 
-  // INCOMPLETE TASK: add all reservation dates to allReservationDates list
-
-  // const getAllReservationDates = () => {
-  //   let currentDate = startDate;
-  //   while (currentDate <= endDate) {
-  //     allReservationDates.push(currentDate);
-  //     currentDate + 1;
-  //   }
-  // };
-
-  // getAllReservationDates();
-
   allReservationDates.map((reservationDate) => {
     const unavailableSite: UnavailableSiteInterface = {
       campgroundId: site.campgroundId,
@@ -80,7 +68,7 @@ const ReservationPage = () => {
       {isReservationCompleted ? (
         <Alert
           type="success"
-          message="Reservation confirmed. You will receive an email from us shortly."
+          message="Reservation confirmed. We will see you soon!"
         />
       ) : null}
       <VisitUs currentCampgroundId={site.campgroundId} />

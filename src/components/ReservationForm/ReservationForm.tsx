@@ -21,9 +21,7 @@ const ReservationForm = (props: CustomerProps) => {
   const [everythingLooksGood, setEverythingLooksGood] = useState(false);
 
   const reserveNowButtonClick = () => {
-    if (everythingLooksGood) {
-      // TODO: set reservationCompleted to true on unavailableSites
-      // TODO: set reservationCompleted to true on Reservation
+    if (everythingLooksGood && fName != "null" && lName != "null" && phone != "null" && email != "null") {
       const newCustomer: CustomerInterface = {
         name: fName + " " + lName,
         rvLength: props.rvLength,
@@ -37,9 +35,7 @@ const ReservationForm = (props: CustomerProps) => {
         headers: HEADERS,
         body: JSON.stringify(newCustomer),
       });
-      // TODO: add customerId to Reservation
       props.setIsReservationCompleted(true);
-      // TODO: remove onClick functionality from Confirm Reservation button
     } else {
       setFormWasIncomplete(true);
     }
@@ -103,6 +99,15 @@ const ReservationForm = (props: CustomerProps) => {
         <Alert
           type="error"
           message="Please confirm reservation info by checking the checkbox above."
+        />
+      ) : (
+        <br />
+      )}
+       {formWasIncomplete &&
+      props.isReservationCompleted === false ? (
+        <Alert
+          type="error"
+          message="Please complete all fields."
         />
       ) : (
         <br />
