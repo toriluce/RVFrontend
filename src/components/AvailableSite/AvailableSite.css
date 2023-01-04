@@ -5,6 +5,20 @@
   display: flex;
 }
 
+.bookButton {
+  margin: 10px;
+}
+
+.bookButtonBox {
+  align-items: center;
+  background-color: rgba(181, 199, 188, 0.9);
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: center;
+  align-self: stretch;
+}
+
 .siteImage {
   width: 25rem;
   height: 15rem;
@@ -12,10 +26,10 @@
 }
 
 .siteInformationBox {
-  flex-grow: 3;
   align-items: stretch;
   display: flex;
   flex-direction: column;
+  flex-grow: 3;
   text-align: left;
   padding: 1em;
 }
@@ -24,16 +38,13 @@
   flex: 1;
 }
 
-.bookButtonBox {
-  background-color: rgba(181, 199, 188, 0.9);
-  flex: 1;
-  padding: 1em;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
+/* MOBILE + TABLET PORTRAIT */
+@media screen and (max-device-width: 780px) and (orientation: portrait) {
+  .availableSiteDisplay {
+    flex-direction: column;
+  }
 
-.bookButton {
-  margin: 10px;
+  .siteImage {
+    width: 100%;
+  }
 }

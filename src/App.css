@@ -29,14 +29,3 @@ body {
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
 }
-
-/* MOBILE */
-@media screen and (max-device-width: 540px) and (orientation: portrait) {
-}
-
-/* TABLET */
-@media screen and (min-width: 540px) and (max-width: 780px) {
-  .view {
-    width: 600px;
-  }
-}

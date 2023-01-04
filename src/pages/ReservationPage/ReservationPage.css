@@ -1,5 +1,5 @@
 .campgroundConfirmationImage {
-  width: 1000px;
+  width: 90%;
   height: 300px;
   object-fit: cover;
   border-radius: 30px;
@@ -18,3 +18,13 @@
   margin: 1em;
 }
 
+/* MOBILE + TABLET PORTRAIT */
+@media screen and (max-device-width: 780px) and (orientation: portrait) {
+  .doublePageContainer {
+    flex-direction: column;
+  }
+
+  .campgroundConfirmationImage {
+    height: 10em;
+  }
+}

@@ -19,7 +19,7 @@ const ReservationPage = () => {
 
   const allReservationDates = [startDate, endDate];
 
-  // TODO: add all reservation dates to allReservationDates list
+  // INCOMPLETE TASK: add all reservation dates to allReservationDates list
 
   // const getAllReservationDates = () => {
   //   let currentDate = startDate;
@@ -59,13 +59,9 @@ const ReservationPage = () => {
         src={campground.photos[0]}
         alt={campground.photos[0]}
       ></img>
-      <h1 className="confirmationHeader">Confirm Your Reservation Information:</h1>
-      {isReservationCompleted ? (
-        <Alert
-          type="success"
-          message="Reservation confirmed. You will receive an email from us shortly."
-        />
-      ) : null}
+      <h1 className="confirmationHeader">
+        Confirm Your Reservation Information:
+      </h1>
       <div className="doublePageContainer">
         <ReservedSite
           site={site}
@@ -81,6 +77,12 @@ const ReservationPage = () => {
           isReservationCompleted={isReservationCompleted}
         />
       </div>
+      {isReservationCompleted ? (
+        <Alert
+          type="success"
+          message="Reservation confirmed. You will receive an email from us shortly."
+        />
+      ) : null}
       <VisitUs currentCampgroundId={site.campgroundId} />
       <Footer />
     </div>

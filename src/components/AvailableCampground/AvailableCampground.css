@@ -8,8 +8,15 @@
 }
 
 .campgroundImage {
-  width: 1000px;
+  width: 90%;
   height: 400px;
   object-fit: cover;
   border-radius: 30px;
+}
+
+/* MOBILE + TABLET PORTRAIT */
+@media screen and (max-device-width: 780px) and (orientation: portrait) {
+  .campgroundImage {
+    height: 10em;
+  }
 }

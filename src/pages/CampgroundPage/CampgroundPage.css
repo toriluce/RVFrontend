@@ -16,8 +16,8 @@
 }
 
 .campgroundMainImage {
-  width: 1000px;
-  height: 400px;
+  height: 20em;
+  width: 90%;
   object-fit: cover;
   border-radius: 30px;
   margin-top: 20px;
@@ -42,4 +42,11 @@
 .invalidDateRange h2 {
   margin-top: 0;
   color: rgb(100, 18, 18);
+}
+
+/* MOBILE + TABLET PORTRAIT */
+@media screen and (max-device-width: 780px) and (orientation: portrait) {
+  .campgroundMainImage {
+    height: 10em;
+  }
 }
