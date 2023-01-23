@@ -1,12 +1,13 @@
 .header-container {
   background-color: white;
-  margin: 0;
-  padding-bottom: 30px;
-  padding-top: 10px;
+  padding: 1em 0em;
 }
 
 .header-brand-title {
+  /* border-bottom: 12px solid #4e6c50;
+  border-top: 12px solid #4e6c50; */
   color: #4e6c50;
+  font-family: sans-serif;
   font-size: 5em;
   font-style: italic;
   font-weight: bolder;
@@ -21,6 +22,6 @@
 /* MOBILE + TABLET PORTRAIT */
 @media screen and (max-device-width: 780px) and (orientation: portrait) {
   .header-brand-title {
-    font-size: 4em;
+    font-size: 12vw;
   }
 }

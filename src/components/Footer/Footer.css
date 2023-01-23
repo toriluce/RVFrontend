@@ -1,4 +1,4 @@
-.year {  
+.footer-link, .footer-link:link, .footer-link:active, .footer-link:hover, .footer-link:visited {  
   background-color: white;
   color: #395144;
   font-style: italic;

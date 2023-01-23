@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import AvailableCampground from "../../components/AvailableCampground/AvailableCampground";
 import Footer from "../../components/Footer/Footer";
 
-import CampgroundInterface from "../../models/ICampground"
+import CampgroundInterface from "../../models/ICampground";
 
 const getCampgrounds = async () => {
   const res = await fetch(`${URL}/campgrounds`, {
@@ -27,6 +27,7 @@ const HomePage = () => {
   return (
     <div className="App">
       <Header />
+      <div className="diagonal-separator-pointed-up-left"></div>
       <div>
         {data.map((campground: CampgroundInterface) => {
           if (campground.name !== "Test RV Resort") {
@@ -43,6 +44,7 @@ const HomePage = () => {
           }
         })}
       </div>
+      <div className="diagonal-separator-pointed-down-right"></div>
       <Footer />
     </div>
   );

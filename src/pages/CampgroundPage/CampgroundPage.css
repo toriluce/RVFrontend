@@ -1,5 +1,5 @@
 .book-your-stay {
-  font-size: 3rem;
+  font-size: 3em;
   margin: 0;
   font-style: italic;
 }
@@ -46,6 +46,14 @@
 
 /* MOBILE + TABLET PORTRAIT */
 @media screen and (max-device-width: 780px) and (orientation: portrait) {
+  .book-your-stay {
+    font-size: 10vw;
+  }
+
+  .campground-name-text {
+    font-size: 15vw;
+  }
+
   .campground-main-image {
     height: 10em;
   }

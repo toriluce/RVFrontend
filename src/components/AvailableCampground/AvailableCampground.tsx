@@ -1,4 +1,4 @@
-import CampgroundInterface from "../../models/ICampground"
+import CampgroundInterface from "../../models/ICampground";
 
 import "./AvailableCampground.css";
 
