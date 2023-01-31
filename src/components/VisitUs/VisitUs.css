@@ -3,8 +3,8 @@
 }
 
 .visit-us-photos {
-  width: 80px;
-  height: 40px;
+  width: 10vw;
+  height: 5vw;
   margin: 10px;
   object-fit: cover;
   border-radius: 5px;
@@ -15,3 +15,10 @@
   padding-top: 10px;
   color: white;
 }
+
+/* MOBILE + TABLET PORTRAIT */
+@media screen and (max-device-width: 780px) and (orientation: portrait) {
+  .visit-us-photos {
+    width: 24vw;
+    height: 12vw;
+}}

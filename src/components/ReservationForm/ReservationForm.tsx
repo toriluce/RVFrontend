@@ -21,7 +21,13 @@ const ReservationForm = (props: CustomerProps) => {
   const [everythingLooksGood, setEverythingLooksGood] = useState(false);
 
   const reserveNowButtonClick = () => {
-    if (everythingLooksGood && fName != "null" && lName != "null" && phone != "null" && email != "null") {
+    if (
+      everythingLooksGood &&
+      fName != "null" &&
+      lName != "null" &&
+      phone != "null" &&
+      email != "null"
+    ) {
       const newCustomer: CustomerInterface = {
         name: fName + " " + lName,
         rvLength: props.rvLength,
@@ -42,50 +48,75 @@ const ReservationForm = (props: CustomerProps) => {
   };
   return (
     <div className="reservation-form-containter">
-      <h3>RV Information</h3>
+      <h2>RV Information</h2>
       <div className="reservation-form-inputs">
         <label htmlFor="rvTypeInput">RV Type: </label>
-        <input id="rvTypeInput" readOnly value={props.rvType}></input>
         <br />
-        <label htmlFor="rvLengthInput">RV Type: </label>
-        <input id="rvLengthInput" readOnly value={props.rvLength}></input>
+        <input
+          className="reservation-form-text-input"
+          id="rvTypeInput"
+          readOnly
+          value={props.rvType}
+        ></input>
+        <br />
+        <label htmlFor="rvLengthInput">RV Length: </label>
+        <br />
+        <input
+          className="reservation-form-text-input"
+          id="rvLengthInput"
+          readOnly
+          value={props.rvLength}
+        ></input>
       </div>
-      <h3>Contact Information</h3>
+      <h2>Contact Information</h2>
       <div className="customerInputBox">
         <label htmlFor="fnameInput">First Name: </label>
+        <br />
         <input
+          className="reservation-form-text-input"
           id="fnameInput"
           onChange={(event) => {
             setFName(event.target.value as any);
           }}
+          placeholder="Enter your first name"
         ></input>
         <br />
         <label htmlFor="lnameInput">Last Name: </label>
+        <br />
         <input
+          className="reservation-form-text-input"
           id="lnameInput"
           onChange={(event) => {
             setLName(event.target.value as any);
           }}
+          placeholder="Enter your last name"
         ></input>
         <br />
         <label htmlFor="phoneInput">Phone Number: </label>
+        <br />
         <input
+          className="reservation-form-text-input"
           id="phoneInput"
           onChange={(event) => {
             setPhone(event.target.value as any);
           }}
+          placeholder="Enter your phone number"
         ></input>
         <br />
-        <label htmlFor="emailInput">Email Address: </label>
+        <label htmlFor="emailInput">Email: </label>
+        <br />
         <input
+          className="reservation-form-text-input"
           id="emailInput"
           onChange={(event) => {
             setEmail(event.target.value as any);
           }}
+          placeholder="Enter your email address"
         ></input>
       </div>
       <br />
       <input
+        className="reservation-form-checkbox-input"
         id="everythingLooksGood"
         type="checkbox"
         onChange={(event) => {
@@ -103,12 +134,8 @@ const ReservationForm = (props: CustomerProps) => {
       ) : (
         <br />
       )}
-       {formWasIncomplete &&
-      props.isReservationCompleted === false ? (
-        <Alert
-          type="error"
-          message="Please complete all fields."
-        />
+      {formWasIncomplete && props.isReservationCompleted === false ? (
+        <Alert type="error" message="Please complete all fields." />
       ) : (
         <br />
       )}
