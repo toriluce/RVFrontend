@@ -115,15 +115,17 @@ const ReservationForm = (props: CustomerProps) => {
         ></input>
       </div>
       <br />
-      <input
-        className="reservation-form-checkbox-input"
-        id="everythingLooksGood"
-        type="checkbox"
-        onChange={(event) => {
-          setEverythingLooksGood(event.target.checked as any);
-        }}
-      ></input>
-      <label htmlFor="everythingLooksGood">Everything Looks Good!</label>
+      <div className="reservation-form-everything-looks-good-container">
+        <input
+          className="reservation-form-checkbox"
+          id="everythingLooksGood"
+          type="checkbox"
+          onChange={(event) => {
+            setEverythingLooksGood(event.target.checked as any);
+          }}
+        ></input>
+        <label htmlFor="everythingLooksGood">Everything Looks Good!</label>
+      </div>
       {formWasIncomplete &&
       everythingLooksGood === false &&
       props.isReservationCompleted === false ? (

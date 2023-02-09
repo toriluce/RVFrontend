@@ -13,7 +13,7 @@ interface reservedSiteInterface {
 
 const ReservedSite = (props: reservedSiteInterface) => {
   return (
-    <section className="reserved-site-info-container">
+    <section className="reserved-site-container">
       <div>
         <a
           href={`/campgrounds/${props.site.campgroundId}`}

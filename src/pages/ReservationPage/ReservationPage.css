@@ -1,4 +1,4 @@
-.confirm-your-reservation {
+.reservation-page-confirm-your-reservation {
   color: #4e6c50;
   font-style: italic;
 }
@@ -12,7 +12,7 @@
 }
 
 .reservation-info-container {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   justify-content: center;
   margin: 1em;

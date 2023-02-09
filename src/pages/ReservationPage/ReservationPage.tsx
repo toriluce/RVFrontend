@@ -47,7 +47,7 @@ const ReservationPage = () => {
         src={campground.photos[0]}
         alt={campground.photos[0]}
       ></img>
-      <h1 className="confirm-your-reservation">
+      <h1 className="reservation-page-confirm-your-reservation">
         Confirm Your Reservation Information:
       </h1>
       <div className="reservation-info-container">
