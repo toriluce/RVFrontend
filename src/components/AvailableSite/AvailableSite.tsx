@@ -9,6 +9,8 @@ interface siteComponentPropsInterface {
   site: SiteInterface;
   startDate: string;
   endDate: string;
+  rvLength: string;
+  rvType: string;
 }
 
 const AvailableSite = (props: siteComponentPropsInterface) => {
@@ -47,6 +49,8 @@ const AvailableSite = (props: siteComponentPropsInterface) => {
                 site: props.site,
                 endDate: props.endDate,
                 startDate: props.startDate,
+                rvLength: props.rvLength,
+                rvType: props.rvType
               },
             });
           }}

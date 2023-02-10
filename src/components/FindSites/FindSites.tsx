@@ -27,6 +27,8 @@ const FindSites = (props: {
   campground: CampgroundInterface;
   startDate: string;
   endDate: string;
+  rvLength: string;
+  rvType: string;
 }) => {
   const [availableSites, setAvailableSites] = useState<SiteInterface[]>([]);
 
@@ -49,6 +51,8 @@ const FindSites = (props: {
               site={site}
               startDate={props.startDate}
               endDate={props.endDate}
+              rvLength={props.rvLength}
+              rvType={props.rvType}
             />
           );
         })

@@ -33,9 +33,11 @@ const CampgroundPage = () => {
 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [rvType, setRvType] = useState("");
+  const [rvLength, setRvLength] = useState("");
 
-  const startDateTest = 2
-  const endDateTest = 2
+  const startDateTest = 2;
+  const endDateTest = 2;
   const totalNights = endDateTest - startDateTest;
 
   const checkAvailabilityButtonClick = () => {
@@ -61,20 +63,20 @@ const CampgroundPage = () => {
         <h1 className="campground-name-text ">{campground.name}</h1>
       </div>
       <img
+        alt={campground.photos[0]}
         className="campground-main-image"
         src={campground.photos[0]}
-        alt={campground.photos[0]}
       ></img>
       <h1>Select Your Dates:</h1>
       <div>
         <label htmlFor="startDateInput">Start Date: </label>
         <input
           id="startDateInput"
-          type="date"
           min={DateTime.now().toISODate()}
           onChange={(event) => {
             setStartDate(event.target.value as any);
           }}
+          type="date"
         ></input>
       </div>
       <br />
@@ -82,15 +84,40 @@ const CampgroundPage = () => {
         <label htmlFor="endDateInput">End Date: </label>
         <input
           id="endDateInput"
-          type="date"
           min={DateTime.now().toISODate()}
           onChange={(event) => {
             setEndDate(event.target.value as any);
           }}
+          type="date"
         ></input>
+        {totalNights ? <h3>{totalNights} NIGHTS</h3> : <br />}
+        <div>
+          <h1>Select Your RV Type:</h1>
+          <label htmlFor="rvType">RV Type: </label>
+          <select
+            id="rvType"
+            name="rvType"
+            onChange={(event) => {
+              setRvType(event.target.value as any);
+            }}
+          >
+            <option value="-">-Please Select-</option>
+            <option value="Motor Home">Motor Home</option>
+            <option value="Fifth Wheel Trailer">Fifth Wheel Trailer</option>
+            <option value="Bumper Pull Trailer">Bumper Pull Trailer</option>
+          </select>
+        </div>
+        <br />
+        <div>
+          <label htmlFor="rvLength">RV Length in Feet: </label>
+          <input
+            onChange={(event) => {
+              setRvLength(event.target.value as any);
+            }}
+            type="number"
+          ></input>
+        </div>
       </div>
-
-      {totalNights ? <h3>{totalNights} NIGHTS</h3> : <br />}
 
       <div>
         <button
@@ -115,6 +142,8 @@ const CampgroundPage = () => {
           campground={campground}
           startDate={startDate}
           endDate={endDate}
+          rvType={rvType}
+          rvLength={rvLength}
         />
       ) : (
         <div></div>

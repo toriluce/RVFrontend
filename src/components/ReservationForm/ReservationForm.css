@@ -8,10 +8,11 @@
 }
 
 .reservation-form-containter {
+  align-self: center;
   padding: 0 50px;
 }
 
-.reservation-form-containter h2 {
+.reservation-form-rv-information {
   margin-top: 0;
 }
 

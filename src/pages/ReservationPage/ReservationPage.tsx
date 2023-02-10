@@ -12,10 +12,11 @@ import { HEADERS, URL } from "../../config";
 import "./ReservationPage.css";
 import ReservationForm from "../../components/ReservationForm/ReservationForm";
 import ReservedSite from "../../components/ReservedSite/ReservedSite";
+import { isPropertySignature } from "typescript";
 
 const ReservationPage = () => {
   const { state } = useLocation();
-  const { campground, site, endDate, startDate } = state;
+  const { campground, site, endDate, startDate, rvLength, rvType } = state;
 
   const allReservationDates = [startDate, endDate];
 
@@ -59,8 +60,8 @@ const ReservationPage = () => {
           lengthOfStay={allReservationDates.length}
         />
         <ReservationForm
-          rvType="Fifth-Wheel"
-          rvLength={30}
+          rvType={rvType}
+          rvLength={rvLength}
           setIsReservationCompleted={setIsReservationCompleted}
           isReservationCompleted={isReservationCompleted}
         />

@@ -13,20 +13,19 @@ interface CustomerProps {
 }
 
 const ReservationForm = (props: CustomerProps) => {
-  const [lName, setLName] = useState("null");
-  const [fName, setFName] = useState("null");
-  const [phone, setPhone] = useState("null");
-  const [email, setEmail] = useState("null");
-  const [formWasIncomplete, setFormWasIncomplete] = useState(false);
+  const [lName, setLName] = useState("");
+  const [fName, setFName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [everythingLooksGood, setEverythingLooksGood] = useState(false);
 
   const reserveNowButtonClick = () => {
     if (
       everythingLooksGood &&
-      fName != "null" &&
-      lName != "null" &&
-      phone != "null" &&
-      email != "null"
+      fName != "" &&
+      lName != "" &&
+      phone != "" &&
+      email != ""
     ) {
       const newCustomer: CustomerInterface = {
         name: fName + " " + lName,
@@ -42,13 +41,11 @@ const ReservationForm = (props: CustomerProps) => {
         body: JSON.stringify(newCustomer),
       });
       props.setIsReservationCompleted(true);
-    } else {
-      setFormWasIncomplete(true);
     }
   };
   return (
     <div className="reservation-form-containter">
-      <h2>RV Information</h2>
+      <h2 className="reservation-form-rv-information">RV Information</h2>
       <div className="reservation-form-inputs">
         <label htmlFor="rvTypeInput">RV Type: </label>
         <br />
@@ -59,7 +56,7 @@ const ReservationForm = (props: CustomerProps) => {
           value={props.rvType}
         ></input>
         <br />
-        <label htmlFor="rvLengthInput">RV Length: </label>
+        <label htmlFor="rvLengthInput">RV Length in Feet: </label>
         <br />
         <input
           className="reservation-form-text-input"
@@ -114,7 +111,6 @@ const ReservationForm = (props: CustomerProps) => {
           placeholder="Enter your email address"
         ></input>
       </div>
-      <br />
       <div className="reservation-form-everything-looks-good-container">
         <input
           className="reservation-form-checkbox"
@@ -126,20 +122,22 @@ const ReservationForm = (props: CustomerProps) => {
         ></input>
         <label htmlFor="everythingLooksGood">Everything Looks Good!</label>
       </div>
-      {formWasIncomplete &&
-      everythingLooksGood === false &&
+      {everythingLooksGood === false &&
       props.isReservationCompleted === false ? (
         <Alert
           type="error"
           message="Please confirm reservation info by checking the checkbox above."
         />
       ) : (
-        <br />
+        ""
       )}
-      {formWasIncomplete && props.isReservationCompleted === false ? (
+      {fName === "" ||
+      lName === "" ||
+      email === "" ||
+      phone === "" ? (
         <Alert type="error" message="Please complete all fields." />
       ) : (
-        <br />
+        ""
       )}
       <button className="button reserve-button" onClick={reserveNowButtonClick}>
         Confirm Reservation
